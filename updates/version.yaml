@@ -1,0 +1,142 @@
+1.0.1:
+    - 'Инициализация плагина.'
+1.0.2:
+    - 'Создание таблицы постов'
+    - builder_table_create_pp_kistochki_posts.php
+1.0.3:
+    - 'Создание таблицу метро'
+    - builder_table_create_pp_kistochki_districts.php
+1.0.4:
+    - 'Создание таблицу салоны'
+    - builder_table_create_pp_kistochki_saloons.php
+1.0.5:
+    - 'Создание таблицу услуги'
+    - builder_table_create_pp_kistochki_services.php
+1.0.6:
+    - 'Создание таблицу отзывов'
+    - builder_table_create_pp_kistochki_reviews.php
+1.0.7:
+    - 'Создание таблицу портфолио'
+    - builder_table_create_pp_kistochki_portfolios.php
+1.0.8:
+    - 'Создание таблицу тегов'
+    - builder_table_create_pp_kistochki_tags.php
+    - builder_table_create_pp_kistochki_taggables.php
+1.0.9:
+    - 'Создание таблицу категорий'
+    - builder_table_create_pp_kistochki_categories.php
+1.0.10:
+    - 'Создание таблицу картинок'
+    - builder_table_create_pp_kistochki_images.php
+    - builder_table_create_pp_kistochki_imageables.php
+1.0.11:
+    - 'Создание таблицу контактов'
+    - builder_table_create_pp_kistochki_contacts.php
+    - builder_table_create_pp_kistochki_contactables.php
+1.0.12: 'Добавление автозаполнитель список городов'
+1.0.13: 'Добавление автозаполнитель список метро'
+1.0.14: 'Добавление автозаполнитель салонов'
+1.0.15: 'Добавление автозаполнитель тегов'
+1.0.16: 'Добавление автозаполнитель услуг'
+1.0.17: 'Добавление автозаполнитель отзывов'
+1.0.18: 'Добавление автозаполнитель фейковых вакансии, акции, карты лояльности, абонементы, сертификаты, гарантия и качество'
+1.0.19:
+    - 'Создание таблицу городов'
+    - builder_table_create_pp_kistochki_cities.php
+1.0.20:
+    - 'Создание таблицу цены'
+    - builder_table_create_pp_kistochki_prices.php
+1.0.21:
+    - 'Создание таблицу для SEO'
+    - builder_table_create_pp_kistochki_seos.php
+1.0.22:
+    - 'Создание таблицу для Хиты'
+    - builder_table_create_pp_kistochki_hits.php
+    - builder_table_create_pp_kistochki_hitables.php
+2.0.1:
+    - 'Created table pp_kistochki_promotions'
+    - builder_table_create_pp_kistochki_promotions.php
+2.0.2:
+    - 'Updated table pp_kistochki_promotions'
+    - builder_table_update_pp_kistochki_promotions.php
+2.0.3:
+    - 'Updated table pp_kistochki_promotions'
+    - builder_table_update_pp_kistochki_promotions_2.php
+2.0.4:
+    - 'Updated table pp_kistochki_promotions'
+    - builder_table_update_pp_kistochki_promotions_3.php
+2.0.5:
+    - 'Updated table pp_kistochki_promotions'
+    - builder_table_update_pp_kistochki_promotions_4.php
+2.0.6:
+    - 'Updated table pp_kistochki_promotions'
+    - builder_table_update_pp_kistochki_promotions_5.php
+2.0.7:
+    - 'Updated table pp_kistochki_images'
+    - builder_table_update_pp_kistochki_images.php
+2.0.8:
+    - 'Updated table pp_kistochki_promotions'
+    - builder_table_update_pp_kistochki_promotions_6.php
+2.0.9:
+    - 'Updated table pp_kistochki_reviews'
+    - builder_table_update_pp_kistochki_reviews.php
+2.0.10:
+    - 'Updated table pp_kistochki_reviews'
+    - builder_table_update_pp_kistochki_reviews_2.php
+2.0.11:
+    - 'Updated table pp_kistochki_reviews'
+    - builder_table_update_pp_kistochki_reviews_3.php
+2.0.12:
+    - 'Updated table pp_kistochki_images'
+    - builder_table_update_pp_kistochki_images_2.php
+2.0.13:
+    - 'Updated table pp_kistochki_images'
+    - builder_table_update_pp_kistochki_images_3.php
+2.0.14:
+    - 'Created table pp_kistochki_news'
+    - builder_table_create_pp_kistochki_news.php
+2.0.15:
+    - 'Updated table pp_kistochki_news'
+    - builder_table_update_pp_kistochki_news.php
+2.0.16:
+    - 'Updated table pp_kistochki_news'
+    - builder_table_update_pp_kistochki_news_2.php
+2.0.17:
+    - 'Updated table pp_kistochki_news'
+    - builder_table_update_pp_kistochki_news_3.php
+2.0.18:
+    - 'Updated table pp_kistochki_news'
+    - builder_table_update_pp_kistochki_news_4.php
+2.0.19:
+    - 'Updated table pp_kistochki_news'
+    - builder_table_update_pp_kistochki_news_5.php
+2.0.20:
+    - 'Updated table pp_kistochki_reviews'
+    - builder_table_update_pp_kistochki_reviews_4.php
+2.0.21:
+    - 'Updated table pp_kistochki_reviews'
+    - builder_table_update_pp_kistochki_reviews_5.php
+2.0.22:
+    - 'Updated table pp_kistochki_reviews'
+    - builder_table_update_pp_kistochki_reviews_6.php
+2.0.23:
+    - 'Created table pp_kistochki_menus'
+    - builder_table_create_pp_kistochki_menus.php
+2.0.24:
+    - 'Created table pp_kistochki_goals'
+    - builder_table_create_pp_kistochki_goals.php
+2.0.25:
+    - 'Created table pp_kistochki_sliders'
+    - builder_table_create_pp_kistochki_sliders.php
+2.0.26:
+    - 'Created table pp_kistochki_callbacks'
+    - builder_table_create_pp_kistochki_callbacks.php
+2.0.27:
+    - 'Created table pp_kistochki_jobs'
+    - builder_table_create_pp_kistochki_jobs.php
+2.0.28:
+    - 'Created table pp_kistochki_district_categories'
+    - builder_table_create_pp_kistochki_district_categories.php
+2.0.29:
+    - 'Добавление автозаполнитель пользователей'
+    - DatabaseSeeder.php

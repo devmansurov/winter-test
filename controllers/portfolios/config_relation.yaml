@@ -1,0 +1,20 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+images:
+    label: картинку
+    view:
+        form: $/pp/kistochki/models/image/fields.yaml
+        list: $/pp/kistochki/models/image/columns.yaml
+    manage:
+        form: $/pp/kistochki/models/image/fields.yaml
+        list: $/pp/kistochki/models/image/columns.yaml
+tags:
+    label: тега
+    view:
+        form: $/pp/kistochki/models/tag/fields.yaml
+        list: $/pp/kistochki/models/tag/columns.yaml
+    manage:
+        form: $/pp/kistochki/models/tag/fields.yaml
+        list: $/pp/kistochki/models/tag/columns.yaml

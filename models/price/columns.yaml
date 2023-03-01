@@ -1,0 +1,4 @@
+columns:
+    master:
+        label: Цена для мастера
+        type: text

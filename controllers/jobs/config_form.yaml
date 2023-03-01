@@ -1,0 +1,10 @@
+name: Jobs
+form: $/pp/kistochki/models/job/fields.yaml
+modelClass: Pp\Kistochki\Models\Job
+defaultRedirect: pp/kistochki/jobs
+create:
+    redirect: 'pp/kistochki/jobs/update/:id'
+    redirectClose: pp/kistochki/jobs
+update:
+    redirect: pp/kistochki/jobs
+    redirectClose: pp/kistochki/jobs

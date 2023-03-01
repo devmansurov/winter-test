@@ -1,0 +1,73 @@
+fields:
+    title:
+        label: Заголовок
+        span: auto
+        required: 1
+        type: text
+    slug:
+        label: Slug
+        span: auto
+        required: 1
+        preset:
+            field: title
+            type: slug
+        type: text
+    subtitle:
+        label: Подзаголовок
+        span: auto
+        required: 0
+        defaultFrom: title
+        type: text
+        hidden: 1
+    city:
+        label: Город
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        required: 1
+        type: relation
+    order:
+        label: 'Номер сортировки'
+        span: left
+        type: number
+        hidden: 1
+tabs:
+    fields:
+        excerpt:
+            label: 'Краткое описание'
+            span: full
+            required: 0
+            type: richeditor
+            hidden: 1
+            tab: Описание
+        description:
+            label: 'Описание'
+            size: large
+            span: full
+            type: richeditor
+            tab: 'Описание'
+        information:
+            label: 'Информация'
+            tab: 'Информация'
+            prompt: 'Добавить'
+            span: full
+            type: repeater
+            form:
+                fields:
+                    info_title:
+                        label: 'Заголовок'
+                        span: auto
+                        type: text
+                    info_text:
+                        label: 'Текст'
+                        size: ''
+                        span: auto
+                        type: textarea
+        images:
+            label: Картинки
+            nameFrom: title
+            descriptionFrom: description
+            span: full
+            type: partial
+            path: field_images
+            tab: Картинки

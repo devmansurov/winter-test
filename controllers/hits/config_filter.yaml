@@ -1,0 +1,23 @@
+scopes:
+  cities:
+    label: Город
+    modelClass: Pp\Kistochki\Models\City
+    conditions: city_id in (:filtered)
+    nameFrom: title
+  category:
+    label: Категория
+    modelClass: Pp\Kistochki\Models\Category
+    conditions: category_id in (:filtered)
+    nameFrom: title
+  status:
+    label: Статус
+    type: switch
+    conditions:
+        - status <> true
+        - status = true
+  created_at:
+    label: Дата
+    type: daterange
+    minDate: '2023-01-01'
+    maxDate: '2025-01-01'
+    conditions: created_at >= ':after' AND created_at <= ':before'

@@ -1,0 +1,10 @@
+name: Tags
+form: $/pp/kistochki/models/tag/fields.yaml
+modelClass: Pp\Kistochki\Models\Tag
+defaultRedirect: pp/kistochki/tags
+create:
+    redirect: 'pp/kistochki/tags/update/:id'
+    redirectClose: pp/kistochki/tags
+update:
+    redirect: pp/kistochki/tags
+    redirectClose: pp/kistochki/tags

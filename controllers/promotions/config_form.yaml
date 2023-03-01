@@ -1,0 +1,10 @@
+name: Promotions
+modelClass: Pp\Kistochki\Models\Promotion
+form: $/pp/kistochki/models/promotion/fields.yaml
+defaultRedirect: pp/kistochki/promotions
+create:
+    redirect: 'pp/kistochki/promotions/update/:id'
+    redirectClose: pp/kistochki/promotions
+update:
+    redirect: pp/kistochki/promotions
+    redirectClose: pp/kistochki/promotions

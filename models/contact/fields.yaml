@@ -1,0 +1,24 @@
+fields:
+    value:
+        label: Значение
+        span: left
+        type: text
+        comment: 'Ссылка или номер телефона'
+    type:
+        label: Тип
+        options:
+            1: Телефон
+            2: Telegram
+            3: Instagram
+            4: Facebook
+            5: WhatsApp
+            6: ВКонтакте
+            7: Viber
+        showSearch: true
+        span: auto
+        default: '5'
+        type: dropdown
+    status:
+        label: Статус
+        span: auto
+        type: switch

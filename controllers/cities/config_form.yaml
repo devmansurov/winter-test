@@ -1,0 +1,10 @@
+name: Cities
+form: $/pp/kistochki/models/city/fields.yaml
+modelClass: Pp\Kistochki\Models\City
+defaultRedirect: pp/kistochki/cities
+create:
+    redirect: 'pp/kistochki/cities/update/:id'
+    redirectClose: pp/kistochki/cities
+update:
+    redirect: pp/kistochki/cities
+    redirectClose: pp/kistochki/cities

@@ -1,0 +1,13 @@
+list: $/pp/kistochki/models/goal/columns.yaml
+modelClass: Pp\Kistochki\Models\Goal
+title: Goals
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+filter: config_filter.yaml
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'pp/kistochki/goals/update/:id'

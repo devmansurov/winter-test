@@ -1,0 +1,45 @@
+fields:
+    title:
+        label: Название
+        span: auto
+        type: text
+    slug:
+        label: Slug
+        span: auto
+        required: 1
+        preset:
+            field: title
+            type: slug
+        type: text
+    is_metro:
+        label: Метро
+        span: right
+        type: switch
+tabs:
+    fields:
+        details:
+            label: 'Детали'
+            tab: 'Детали'
+            prompt: 'Добавить'
+            span: full
+            type: repeater
+            form:
+                fields:
+                    city:
+                        label: Город
+                        nameFrom: title
+                        descriptionFrom: description
+                        span: auto
+                        required: 1
+                        type: relation
+                    color:
+                        label: 'Цвет участка'
+                        availableColors:
+                            - '#F45151'
+                            - '#3D9CE0'
+                            - '#34B869'
+                            - '#FCC537'
+                            - '#C722CA'
+                            - '#E280A8'
+                        span: auto
+                        type: colorpicker

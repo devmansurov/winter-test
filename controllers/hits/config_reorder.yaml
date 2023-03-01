@@ -1,0 +1,5 @@
+title: Hits
+modelClass: Pp\Kistochki\Models\Hit
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar

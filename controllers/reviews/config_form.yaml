@@ -1,0 +1,10 @@
+name: Reviews
+form: $/pp/kistochki/models/review/fields.yaml
+modelClass: Pp\Kistochki\Models\Review
+defaultRedirect: pp/kistochki/reviews
+create:
+    redirect: 'pp/kistochki/reviews/update/:id'
+    redirectClose: pp/kistochki/reviews
+update:
+    redirect: pp/kistochki/reviews
+    redirectClose: pp/kistochki/reviews

@@ -1,0 +1,18 @@
+columns:
+    title:
+        label: Заголовок
+        type: text
+        searchable: true
+    slug:
+        label: Slug
+        type: text
+        searchable: true
+    order:
+        label: Order
+        type: number
+    status:
+        label: Опубликовано
+        type: switch
+    created_at:
+        label: Дата
+        type: date

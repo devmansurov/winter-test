@@ -1,0 +1,5 @@
+title: Promotions
+modelClass: Pp\Kistochki\Models\Promotion
+nameFrom: sort_order
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,57 @@
+fields:
+    title:
+        label: Название
+        span: auto
+        type: text
+    schedule:
+        label: 'Рабочие дни'
+        span: auto
+        type: text
+    order:
+        label: Order
+        span: auto
+        default: '0'
+        type: number
+    address:
+        label: Адрес
+        span: auto
+        required: 1
+        type: text
+    district:
+        label: Метро
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        required: 1
+        type: relation
+    city:
+        label: Город
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        required: 1
+        type: relation
+    lat:
+        label: Lat
+        span: auto
+        type: number
+    long:
+        label: Long
+        span: auto
+        type: number
+    description:
+        label: Описание
+        size: ''
+        span: full
+        type: richeditor
+    status:
+        label: Статус
+        span: auto
+        type: switch
+    contacts:
+        label: Контакты
+        nameFrom: title
+        descriptionFrom: description
+        span: full
+        type: partial
+        path: field_contacts

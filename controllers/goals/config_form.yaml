@@ -1,0 +1,10 @@
+name: Goals
+form: $/pp/kistochki/models/goal/fields.yaml
+modelClass: Pp\Kistochki\Models\Goal
+defaultRedirect: pp/kistochki/goals
+create:
+    redirect: 'pp/kistochki/goals/update/:id'
+    redirectClose: pp/kistochki/goals
+update:
+    redirect: pp/kistochki/goals
+    redirectClose: pp/kistochki/goals

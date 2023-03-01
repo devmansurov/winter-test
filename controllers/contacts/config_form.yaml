@@ -1,0 +1,10 @@
+name: Contacts
+form: $/pp/kistochki/models/contact/fields.yaml
+modelClass: Pp\Kistochki\Models\Contact
+defaultRedirect: pp/kistochki/contacts
+create:
+    redirect: 'pp/kistochki/contacts/update/:id'
+    redirectClose: pp/kistochki/contacts
+update:
+    redirect: pp/kistochki/contacts
+    redirectClose: pp/kistochki/contacts

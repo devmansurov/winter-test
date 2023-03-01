@@ -1,0 +1,6 @@
+fields:
+    callback_status:
+        label: Обратный звонок
+        span: full
+        default: true
+        type: switch

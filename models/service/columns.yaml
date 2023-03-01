@@ -1,0 +1,68 @@
+columns:
+    title:
+        label: Название
+        type: text
+        searchable: true
+        sortable: true
+    slug:
+        label: Slug
+        type: text
+        searchable: true
+        invisible: true
+    category:
+        label: 'Категория'
+        type: text
+        searchable: true
+        sortable: true
+        select: title
+        relation: category
+    city:
+        label: 'Город'
+        type: text
+        searchable: true
+        sortable: true
+        select: title
+        relation: city
+    pro:
+        label: Премиум
+        type: inetis-list-switch
+        icon: true
+        titleTrue: 'Отозвать премиум статус'
+        titleFalse: 'Сделать премиум услугой'
+        textTrue: 'Да'
+        textFalse: 'Нет'
+    hit:
+        label: Хит
+        type: inetis-list-switch
+        icon: true
+        titleTrue: 'Отозвать хит статус'
+        titleFalse: 'Сделать хитовой услугой'
+        textTrue: 'Да'
+        textFalse: 'Нет'
+    status:
+        label: Статус
+        type: inetis-list-switch
+        icon: true
+        titleTrue: 'Отключить услугу'
+        titleFalse: 'Включить услугу'
+        textTrue: 'Да'
+        textFalse: 'Нет'
+    link_weight:
+        label: Вес ссылки
+        type: number
+        sortable: true
+    order:
+        label: Order
+        type: number
+        sortable: true
+        invisible: true
+    created_at:
+        label: Создано
+        type: date
+        sortable: true
+        invisible: true
+    updated_at:
+        label: Обновлено
+        type: date
+        sortable: true
+        invisible: true

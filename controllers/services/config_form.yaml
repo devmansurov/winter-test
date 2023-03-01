@@ -1,0 +1,10 @@
+name: Services
+form: $/pp/kistochki/models/service/fields.yaml
+modelClass: Pp\Kistochki\Models\Service
+defaultRedirect: pp/kistochki/services
+create:
+    redirect: 'pp/kistochki/services/update/:id'
+    redirectClose: pp/kistochki/services
+update:
+    redirect: pp/kistochki/services
+    redirectClose: pp/kistochki/services

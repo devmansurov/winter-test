@@ -1,0 +1,4 @@
+title: News
+modelClass: Pp\Kistochki\Models\News
+toolbar:
+    buttons: reorder_toolbar

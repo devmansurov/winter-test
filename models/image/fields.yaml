@@ -1,0 +1,32 @@
+fields:
+    title:
+        label: Заголовок
+        span: left
+        type: text
+    alt:
+        label: Alt
+        span: right
+        type: text
+    src:
+        label: Картинка
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    src_mini:
+        label: 'Картинка (мини)'
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    order:
+        label: Order
+        span: auto
+        default: '0'
+        type: number

@@ -1,0 +1,10 @@
+name: Portfolios
+form: $/pp/kistochki/models/portfolio/fields.yaml
+modelClass: Pp\Kistochki\Models\Portfolio
+defaultRedirect: pp/kistochki/portfolios
+create:
+    redirect: 'pp/kistochki/portfolios/update/:id'
+    redirectClose: pp/kistochki/portfolios
+update:
+    redirect: pp/kistochki/portfolios
+    redirectClose: pp/kistochki/portfolios

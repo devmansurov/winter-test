@@ -1,0 +1,17 @@
+columns:
+    alt:
+        label: Alt
+        type: text
+    title:
+        label: Заголовок
+        type: text
+    order:
+        label: Order
+        type: number
+    src:
+        label: Картинка
+        type: image
+    src_mini:
+        label: 'Картинка (мини)'
+        type: image
+

@@ -1,0 +1,10 @@
+name: Districts
+form: $/pp/kistochki/models/district/fields.yaml
+modelClass: Pp\Kistochki\Models\District
+defaultRedirect: pp/kistochki/districts
+create:
+    redirect: 'pp/kistochki/districts/update/:id'
+    redirectClose: pp/kistochki/districts
+update:
+    redirect: pp/kistochki/districts
+    redirectClose: pp/kistochki/districts

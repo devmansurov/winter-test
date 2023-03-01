@@ -1,0 +1,32 @@
+columns:
+    title:
+        label: Заголовок
+        type: text
+    hit_title:
+        label: Хит
+        type: text
+    promotion:
+        label: 'Акция'
+        type: text
+        searchable: true
+        select: title
+        relation: promotion
+    city:
+        label: 'Город'
+        type: text
+        searchable: true
+        sortable: true
+        select: title
+        relation: city
+    status:
+        label: Статус
+        type: inetis-list-switch
+        icon: true
+        titleTrue: 'Отключить акцию'
+        titleFalse: 'Включить акцию'
+        textTrue: 'Да'
+        textFalse: 'Нет'
+    link_weight:
+        label: Вес ссылки
+        type: number
+        sortable: true

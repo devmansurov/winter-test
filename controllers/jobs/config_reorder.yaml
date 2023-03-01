@@ -1,0 +1,5 @@
+title: Jobs
+modelClass: Pp\Kistochki\Models\Job
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar

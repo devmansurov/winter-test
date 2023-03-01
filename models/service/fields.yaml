@@ -1,0 +1,192 @@
+fields:
+    title:
+        label: Название
+        span: auto
+        required: 1
+        type: text
+    slug:
+        label: Slug
+        span: auto
+        required: 1
+        preset:
+            field: title
+            type: slug
+        type: text
+    subtitle:
+        label: Подзаголовок
+        span: auto
+        required: 0
+        defaultFrom: title
+        type: text
+    city:
+        label: Город
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        required: 1
+        type: relation
+    link_weight:
+        label: Вес ссылки
+        span: auto
+        required: 1
+        default: '1'
+        attributes:
+            min: '1'
+            max: '100'
+            maxlength: '3'
+        type: number
+    category:
+        label: Категория
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        required: 1
+        type: relation
+    order:
+        label: 'Номер сортировки'
+        span: left
+        type: number
+    pro:
+        label: 'Премиум услуга'
+        span: right
+        type: switch
+        options:
+        on: Да
+        off: Нет
+    hit:
+        label: Хит
+        span: right
+        type: switch
+        options:
+        on: Да
+        off: Нет
+    status:
+        label: Статус
+        span: right
+        type: switch
+tabs:
+    fields:
+        description:
+            label: Описание
+            span: full
+            required: 0
+            type: richeditor
+            tab: Описание
+        excerpt:
+            label: 'Краткое описание'
+            span: full
+            required: 0
+            type: richeditor
+            tab: Описание
+        price@relationcontroller:
+            label: 'Relation Controller'
+            commentAbove: 'RelationController used as a partial field type.'
+            type: partial
+            tab: Разное
+        seo@relationcontroller:
+            label: 'Relation Controller'
+            commentAbove: 'RelationController used as a partial field type.'
+            type: partial
+            tab: Разное
+        edit_price:
+            label: 'Редактировать цены'
+            span: full
+            type: switch
+            trigger:
+                action: enable
+                field: price[master_night]
+                condition: ''
+            tab: Цены
+        'price[master]':
+            label: 'Цена для мастера'
+            context:
+                - create
+                - update
+            span: auto
+            type: number
+            default: 0
+            tab: Цены
+        'price[master_night]':
+            label: 'Ночная цена для мастера'
+            context:
+                - create
+                - update
+            span: auto
+            trigger:
+                action: disable
+                field: edit_price
+                condition: unchecked
+            type: number
+            comment: 'При пустой значение цена устанавливается автоматически (+20% от основной цены)'
+            default: 0
+            tab: Цены
+        'price[pro_master]':
+            label: 'Цена для TOP мастера'
+            context:
+                - create
+                - update
+            span: auto
+            type: number
+            default: 0
+            tab: Цены
+        'price[pro_master_night]':
+            label: 'Ночная цена для TOP мастера'
+            context:
+                - create
+                - update
+            span: auto
+            trigger:
+                action: disable
+                field: edit_price
+                condition: unchecked
+            comment: 'При пустой значение цена устанавливается автоматически (+20% от основной цены)'
+            type: number
+            default: 0
+            tab: Цены
+        'price[super_master]':
+            label: 'Цена для SUPER мастера'
+            span: auto
+            trigger:
+                action: disable
+                field: pro
+                condition: unchecked
+            context:
+                - create
+                - update
+            type: number
+            default: 0
+            tab: Цены
+        'price[super_master_night]':
+            label: 'Ночная цена для SUPER мастера'
+            context:
+                - create
+                - update
+            span: auto
+            trigger:
+                action: disable
+                field: edit_price
+                condition: unchecked
+            type: number
+            comment: 'При пустой значение цена устанавливается автоматически (+20% от основной цены)'
+            default: 0
+            tab: Цены
+        'seo[meta_title]':
+            label: 'SEO заголовок'
+            span: auto
+            type: text
+            defaultFrom: title
+            tab: SEO
+        'seo[meta_desc]':
+            label: 'SEO описание'
+            size: ''
+            span: full
+            type: textarea
+            tab: SEO
+        images:
+            label: Картинки
+            nameFrom: title
+            descriptionFrom: description
+            span: full
+            type: partial
+            path: field_images
+            tab: Картинки

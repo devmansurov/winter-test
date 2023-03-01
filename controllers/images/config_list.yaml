@@ -1,0 +1,12 @@
+list: $/pp/kistochki/models/image/columns.yaml
+modelClass: Pp\Kistochki\Models\Image
+title: Images
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'pp/kistochki/images/update/:id'

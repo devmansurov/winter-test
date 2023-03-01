@@ -1,0 +1,19 @@
+columns:
+    title:
+        label: Загаловок
+        type: text
+        searchable: true
+        sortable: true
+    name:
+        label: Пользователь
+        type: text
+        searchable: true
+        sortable: true
+    rating:
+        label: Рейтинг
+        type: number
+        sortable: true
+    created_at:
+        label: Дата
+        type: date
+        sortable: true

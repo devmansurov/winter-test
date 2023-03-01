@@ -1,0 +1,10 @@
+fields:
+    meta_title:
+        label: 'SEO заголовок'
+        span: auto
+        type: text
+    meta_desc:
+        label: 'SEO описание'
+        size: ''
+        span: full
+        type: textarea

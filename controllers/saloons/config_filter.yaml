@@ -1,0 +1,6 @@
+scopes:
+  cities:
+    label: Город
+    modelClass: Pp\Kistochki\Models\City
+    conditions: city_id in (:filtered)
+    nameFrom: title

@@ -1,0 +1,9 @@
+columns:
+    value:
+        label: Значение
+        type: text
+        searchable: true
+    type:
+        label: Тип
+        type: text
+        sortable: true

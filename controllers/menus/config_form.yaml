@@ -1,0 +1,10 @@
+name: Menus
+form: $/pp/kistochki/models/menu/fields.yaml
+modelClass: Pp\Kistochki\Models\Menu
+defaultRedirect: pp/kistochki/menus
+create:
+    redirect: 'pp/kistochki/menus/update/:id'
+    redirectClose: pp/kistochki/menus
+update:
+    redirect: pp/kistochki/menus
+    redirectClose: pp/kistochki/menus

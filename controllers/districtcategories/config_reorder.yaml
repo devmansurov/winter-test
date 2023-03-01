@@ -1,0 +1,5 @@
+title: DistrictCategories
+modelClass: Pp\Kistochki\Models\DistrictCategory
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar

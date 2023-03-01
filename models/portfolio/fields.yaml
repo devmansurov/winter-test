@@ -1,0 +1,20 @@
+fields:
+    order:
+        label: Order
+        span: auto
+        default: '0'
+        type: number
+    tags:
+        label: Теги
+        nameFrom: title
+        descriptionFrom: description
+        span: full
+        type: partial
+        path: field_tags
+    images:
+        label: Картинки
+        nameFrom: title
+        descriptionFrom: description
+        span: full
+        type: partial
+        path: field_images

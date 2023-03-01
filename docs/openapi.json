@@ -1,0 +1,814 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Кисточки - OpenAPI 3.0",
+    "description": "Документация REST API для проекта **\"Кисточки\"**",
+    "contact": {
+      "name": "Support",
+      "email": "devmansurov@gmail.com"
+    },
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://http://api.kistochki.loc"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Метро"
+    },
+    {
+      "name": "Салоны"
+    },
+    {
+      "name": "Услуги"
+    },
+    {
+      "name": "Отзывы"
+    },
+    {
+      "name": "Вакансии"
+    },
+    {
+      "name": "Акции"
+    },
+    {
+      "name": "Карты лояльности"
+    },
+    {
+      "name": "Абонементы"
+    },
+    {
+      "name": "Сертификаты"
+    },
+    {
+      "name": "Гарантия качество"
+    }
+  ],
+  "paths": {
+    "/districts": {
+      "get": {
+        "tags": [
+          "Метро"
+        ],
+        "summary": "Получение список метро",
+        "description": "Получение список метро",
+        "operationId": "Districts@all",
+        "parameters": [
+          {
+            "$ref":"#/components/parameters/limit"
+          },
+          {
+            "$ref":"#/components/parameters/page"
+          },
+          {
+            "$ref":"#/components/parameters/take"
+          },
+          {
+            "$ref":"#/components/parameters/query"
+          },
+          {
+            "$ref":"#/components/parameters/searchField"
+          },
+          {
+            "$ref":"#/components/parameters/with"
+          },
+          {
+            "$ref":"#/components/parameters/fields"
+          },
+          {
+            "$ref":"#/components/parameters/hideFields"
+          },
+          {
+            "$ref":"#/components/parameters/order"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Успешное получение списка метро",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/District"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "xml": {
+                    "name": "districts"
+                  },
+                  "items": {
+                    "$ref": "#/components/schemas/District"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/saloons": {
+      "get": {
+        "tags": [
+          "Салоны"
+        ],
+        "summary": "Получение список салонов",
+        "description": "Получение список салонов",
+        "operationId": "Saloons@all",
+        "parameters": [
+          {
+            "$ref":"#/components/parameters/limit"
+          },
+          {
+            "$ref":"#/components/parameters/page"
+          },
+          {
+            "$ref":"#/components/parameters/take"
+          },
+          {
+            "$ref":"#/components/parameters/query"
+          },
+          {
+            "$ref":"#/components/parameters/searchField"
+          },
+          {
+            "$ref":"#/components/parameters/with"
+          },
+          {
+            "$ref":"#/components/parameters/fields"
+          },
+          {
+            "$ref":"#/components/parameters/hideFields"
+          },
+          {
+            "$ref":"#/components/parameters/order"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Успешное получение список салонов",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SaloonItem"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "xml": {
+                    "name": "saloons"
+                  },
+                  "items": {
+                    "$ref": "#/components/schemas/Saloon"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services": {
+      "get": {
+        "tags": [
+          "Услуги"
+        ],
+        "summary": "Получение список услуг",
+        "description": "Получение список услуг",
+        "operationId": "Services@all",
+        "parameters": [
+          {
+            "$ref":"#/components/parameters/limit"
+          },
+          {
+            "$ref":"#/components/parameters/page"
+          },
+          {
+            "$ref":"#/components/parameters/take"
+          },
+          {
+            "$ref":"#/components/parameters/query"
+          },
+          {
+            "$ref":"#/components/parameters/searchField"
+          },
+          {
+            "$ref":"#/components/parameters/with"
+          },
+          {
+            "$ref":"#/components/parameters/fields"
+          },
+          {
+            "$ref":"#/components/parameters/hideFields"
+          },
+          {
+            "$ref":"#/components/parameters/order"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Успешное получение список услуг",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Service"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "xml": {
+                    "name": "services"
+                  },
+                  "items": {
+                    "$ref": "#/components/schemas/Service"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reviews": {
+      "get": {
+        "tags": [
+          "Отзывы"
+        ],
+        "summary": "Получение список отзывов",
+        "description": "Получение список отзывов",
+        "operationId": "Reviews@all",
+        "parameters": [
+          {
+            "$ref":"#/components/parameters/limit"
+          },
+          {
+            "$ref":"#/components/parameters/page"
+          },
+          {
+            "$ref":"#/components/parameters/take"
+          },
+          {
+            "$ref":"#/components/parameters/query"
+          },
+          {
+            "$ref":"#/components/parameters/searchField"
+          },
+          {
+            "$ref":"#/components/parameters/with"
+          },
+          {
+            "$ref":"#/components/parameters/fields"
+          },
+          {
+            "$ref":"#/components/parameters/hideFields"
+          },
+          {
+            "$ref":"#/components/parameters/order"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Успешное получение список отзывов",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Review"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "xml": {
+                    "name": "reviews"
+                  },
+                  "items": {
+                    "$ref": "#/components/schemas/Review"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jobs": {
+      "get": {
+        "tags": [
+          "Вакансии"
+        ],
+        "summary": "Получение список вакансий",
+        "description": "Получение список вакансий",
+        "operationId": "Posts@jobs",
+        "parameters": [
+          {
+            "$ref":"#/components/parameters/limit"
+          },
+          {
+            "$ref":"#/components/parameters/page"
+          },
+          {
+            "$ref":"#/components/parameters/take"
+          },
+          {
+            "$ref":"#/components/parameters/query"
+          },
+          {
+            "$ref":"#/components/parameters/searchField"
+          },
+          {
+            "$ref":"#/components/parameters/with"
+          },
+          {
+            "$ref":"#/components/parameters/fields"
+          },
+          {
+            "$ref":"#/components/parameters/hideFields"
+          },
+          {
+            "$ref":"#/components/parameters/order"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Успешное получение список вакансий",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Job"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "xml": {
+                    "name": "jobs"
+                  },
+                  "items": {
+                    "$ref": "#/components/schemas/Job"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Tag": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Идентификатор тега",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "description": "Название тега",
+            "example": "Маникюр"
+          },
+          "slug": {
+            "type": "string",
+            "description": "Slug тега",
+            "example": "manikyur"
+          }
+        },
+        "xml": {
+          "name": "tag"
+        }
+      },
+      "Saloon": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 10,
+            "description": "Идентифкатор салона"
+          },
+          "title": {
+            "type": "string",
+            "example": "ул. Ленсовета д.80 (м. Звездная)",
+            "description": "Название салона"
+          },
+          "address": {
+            "type": "string",
+            "example": "ул. Ленсовета д.80",
+            "description": "Адрес салона"
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание салона"
+          },
+          "schedule": {
+            "type": "string",
+            "example": "ул. Ленсовета д.80",
+            "description": "Рабочая время салона"
+          },
+          "coords": {
+            "type": "object",
+            "description": "Координаты салона",
+            "properties": {
+              "lat": {
+                "type": "number",
+                "description": "Широта",
+                "example": 59.834432
+              },
+              "long": {
+                "type": "number",
+                "description": "Долгота",
+                "example": 30.346951
+              }
+            }
+          },
+          "phone": {
+            "type": "string",
+            "example": "+7 812 333-33-43",
+            "description": "Номер телефон салона"
+          },
+          "order": {
+            "type": "integer",
+            "description": "Номер сортировки",
+            "example": 1
+          },
+          "district": {
+            "$ref": "#/components/schemas/District"
+          }
+        },
+        "xml": {
+          "name": "saloon"
+        }
+      },
+      "SaloonItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 10,
+            "description": "Идентифкатор салона"
+          },
+          "title": {
+            "type": "string",
+            "example": "ул. Ленсовета д.80 (м. Звездная)",
+            "description": "Название салона"
+          },
+          "address": {
+            "type": "string",
+            "example": "ул. Ленсовета д.80",
+            "description": "Адрес салона"
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание салона"
+          },
+          "schedule": {
+            "type": "string",
+            "example": "ул. Ленсовета д.80",
+            "description": "Рабочая время салона"
+          },
+          "coords": {
+            "type": "object",
+            "description": "Координаты салона",
+            "properties": {
+              "lat": {
+                "type": "number",
+                "description": "Широта",
+                "example": 59.834432
+              },
+              "long": {
+                "type": "number",
+                "description": "Долгота",
+                "example": 30.346951
+              }
+            }
+          },
+          "phone": {
+            "type": "string",
+            "example": "+7 812 333-33-43",
+            "description": "Номер телефон салона"
+          },
+          "order": {
+            "type": "integer",
+            "description": "Номер сортировки",
+            "example": 1
+          },
+          "district": {
+            "$ref": "#/components/schemas/District"
+          }
+        },
+        "xml": {
+          "name": "saloon-item"
+        }
+      },
+      "District": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 10
+          },
+          "title": {
+            "type": "string",
+            "example": "Площадь Восстания"
+          },
+          "metro": {
+            "type": "boolean",
+            "example": false
+          },
+          "saloons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SaloonItem"
+            }
+          }
+        },
+        "xml": {
+          "name": "district"
+        }
+      },
+      "Service": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 2,
+            "description": "Идентифкатор услуги"
+          },
+          "title": {
+            "type": "string",
+            "example": "Стажер Маникюр + покрытие гель-лак",
+            "description": "Название услуги"
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание услуги"
+          },
+          "slug": {
+            "type": "string",
+            "description": "Slug (URL) услуги"
+          },
+          "price": {
+            "type": "integer",
+            "example": "840",
+            "description": "Цена услуги"
+          },
+          "order": {
+            "type": "integer",
+            "description": "Номер сортировки",
+            "example": 1
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tag"
+            }
+          }
+        },
+        "xml": {
+          "name": "service"
+        }
+      },
+      "Review": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 10
+          },
+          "user": {
+            "type": "string",
+            "example": "Юлия"
+          },
+          "review": {
+            "type": "string",
+            "example": "Прекрасный чуткий мастер, бережный подход, спасибо"
+          },
+          "rating": {
+            "type": "number",
+            "example": 4.5
+          },
+          "date": {
+            "type": "string",
+            "example": "01.10.2022"
+          }
+        },
+        "xml": {
+          "name": "district"
+        }
+      },
+      "Job": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 2,
+            "description": "Идентифкатор вакансии"
+          },
+          "title": {
+            "type": "string",
+            "example": "Senior Backend Developer",
+            "description": "Название вакансии (позиция)"
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание вакансии"
+          },
+          "slug": {
+            "type": "string",
+            "description": "Slug (URL) вакансии"
+          },
+          "order": {
+            "type": "integer",
+            "description": "Номер сортировки",
+            "example": 1
+          }
+        },
+        "xml": {
+          "name": "job"
+        }
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "xml": {
+          "name": "##default"
+        }
+      }
+    },
+    "parameters": {
+      "limit": {
+        "name": "limit",
+        "in": "query",
+        "description": "Ограничение на количество возвращаемых объектов от 1 до 100 при пагинации",
+        "required": false,
+        "explode": true,
+        "schema": {
+          "type": "number"
+        }
+      },
+      "page": {
+        "name": "page",
+        "in": "query",
+        "description": "Номер страницы при пагинации",
+        "required": false,
+        "explode": true,
+        "schema": {
+          "type": "number"
+        }
+      },
+      "take": {
+        "name": "take",
+        "in": "query",
+        "description": "Количество получаемых записей без пагинации",
+        "required": false,
+        "explode": true,
+        "schema": {
+          "type": "number"
+        }
+      },
+      "query": {
+        "name": "query",
+        "in": "query",
+        "description": "Поисковый запрос",
+        "required": false,
+        "explode": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "searchField": {
+        "name": "searchField",
+        "in": "query",
+        "description": "Поле для поиска при использование поиска",
+        "required": false,
+        "explode": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "with": {
+        "name": "with",
+        "in": "query",
+        "description": "Загрузка связанных данных (relationship)",
+        "required": false,
+        "explode": true,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "saloons"
+          ]
+        }
+      },
+      "fields": {
+        "name": "fields",
+        "in": "query",
+        "description": "Возможность получить только тот ключи с возвращаемого списка объектов",
+        "required": false,
+        "explode": false,
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "example": ["id", "title", "date"]
+          
+        }
+      },
+      "hideFields": {
+        "name": "hideFields",
+        "in": "query",
+        "description": "Возможность скрыть определенные ключи с возвращаемого списка объектов",
+        "required": false,
+        "explode": false,
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "example": ["id", "slug"]
+          
+        }
+      },
+      "order": {
+        "name": "order",
+        "in": "query",
+        "description": "Название поле и тип сортировки для сортировки записей",
+        "required": false,
+        "explode": true,
+        "schema": {
+          "required": [
+            "field",
+            "type"
+          ],
+          "type": "object",
+          "properties": {
+            "field": {
+              "type": "string",
+              "description": "Название поле",
+              "example": "date"
+            },
+            "type": {
+              "type": "string",
+              "description": "Метод сортировки",
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "default":"ASC",
+              "example": "DESC"
+            }
+          },
+          "example": {
+            "field":"title",
+            "type":"DESC"
+          }
+        },
+        "style": "deepObject"
+      }
+    }
+  }
+}

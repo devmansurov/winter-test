@@ -1,0 +1,13 @@
+columns:
+    schedule:
+        label: 'Рабочие дни'
+        type: text
+    address:
+        label: Адрес
+        type: text
+    status:
+        label: Работает
+        type: switch
+    order:
+        label: Order
+        type: number

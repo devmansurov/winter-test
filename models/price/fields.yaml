@@ -1,0 +1,25 @@
+fields:
+    master:
+        label: 'Цена для мастера'
+        span: auto
+        type: number
+    master_night:
+        label: 'Ночная цена для мастера'
+        span: auto
+        type: number
+    pro_master:
+        label: 'Цена для TOP мастера'
+        span: auto
+        type: number
+    pro_master_night:
+        label: 'Ночная цена для TOP мастера'
+        span: auto
+        type: number
+    super_master:
+        label: 'Цена для SUPER мастера'
+        span: auto
+        type: number
+    super_master_night:
+        label: 'Ночная цена для SUPER мастера'
+        span: auto
+        type: number

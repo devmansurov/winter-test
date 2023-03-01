@@ -1,0 +1,10 @@
+name: News
+form: $/pp/kistochki/models/news/fields.yaml
+modelClass: Pp\Kistochki\Models\News
+defaultRedirect: pp/kistochki/news
+create:
+    redirect: 'pp/kistochki/news/update/:id'
+    redirectClose: pp/kistochki/news
+update:
+    redirect: pp/kistochki/news
+    redirectClose: pp/kistochki/news

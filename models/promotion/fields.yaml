@@ -1,0 +1,25 @@
+fields:
+    title:
+        label: 'pp.kistochki::lang.model.title'
+        span: auto
+        type: text
+    slug:
+        label: 'pp.kistochki::lang.model.slug'
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text
+    order:
+        label: 'pp.kistochki::lang.model.order'
+        span: auto
+        type: number
+    status:
+        label: 'pp.kistochki::lang.model.status'
+        span: auto
+        type: switch
+    Images:
+        label: 'pp.kistochki::lang.model.images'
+        span: full
+        path: field_images
+        type: partial

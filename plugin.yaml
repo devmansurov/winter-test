@@ -1,0 +1,36 @@
+plugin:
+    name: 'pp.kistochki::lang.plugin.name'
+    description: 'pp.kistochki::lang.plugin.description'
+    author: 'People&People'
+    icon: oc-icon-adjust
+    homepage: ''
+navigation:
+    main-menu-item2:
+        label: promotion
+        url: pp/kistochki/promotions
+        icon: icon-fire
+        permissions:
+            - admin_kistochki
+            - developer_kistochki
+        sideMenu:
+            side-menu-item:
+                label: promotion
+                url: pp/kistochki/promotions
+                icon: icon-slack
+                permissions:
+                    - admin_kistochki
+                    - developer_kistochki
+            side-menu-item-1:
+                label: landing
+                url: 'pp/kistochki/posts/update/17?type=promotion'
+                icon: icon-sitemap
+                permissions:
+                    - admin_kistochki
+                    - developer_kistochki
+permissions:
+    admin_kistochki:
+        tab: 'pp.kistochki::lang.plugin.name'
+        label: 'Admin Kistochki'
+    developer_kistochki:
+        tab: 'pp.kistochki::lang.plugin.name'
+        label: 'Developer Kistochki'

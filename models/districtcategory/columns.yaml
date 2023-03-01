@@ -1,0 +1,17 @@
+columns:
+    title:
+        label: Название
+        type: text
+        searchable: true
+        sortable: true
+    is_metro:
+        label: Метро
+        type: switch
+    status:
+        label: Статус
+        type: inetis-list-switch
+        icon: true
+        titleTrue: 'Деактивировать категорию участку'
+        titleFalse: 'Активировать категорию участку'
+        textTrue: 'Да'
+        textFalse: 'Нет'

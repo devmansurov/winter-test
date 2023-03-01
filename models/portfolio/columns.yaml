@@ -1,0 +1,4 @@
+columns:
+    order:
+        label: Order
+        type: number

@@ -1,0 +1,4 @@
+title: Cities
+modelClass: Pp\Kistochki\Models\City
+toolbar:
+    buttons: reorder_toolbar

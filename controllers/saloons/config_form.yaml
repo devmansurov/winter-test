@@ -1,0 +1,10 @@
+name: Saloons
+form: $/pp/kistochki/models/saloon/fields.yaml
+modelClass: Pp\Kistochki\Models\Saloon
+defaultRedirect: pp/kistochki/saloons
+create:
+    redirect: 'pp/kistochki/saloons/update/:id'
+    redirectClose: pp/kistochki/saloons
+update:
+    redirect: pp/kistochki/saloons
+    redirectClose: pp/kistochki/saloons

@@ -1,0 +1,27 @@
+columns:
+    title:
+        label: Заголовок
+        type: text
+    slug:
+        label: Slug
+        type: text
+    city:
+        label: 'Город'
+        type: text
+        searchable: true
+        sortable: true
+        select: title
+        relation: city
+    status:
+        label: Статус
+        type: inetis-list-switch
+        icon: true
+        titleTrue: 'Отключить меню'
+        titleFalse: 'Включить меню'
+        textTrue: 'Да'
+        textFalse: 'Нет'
+    order:
+        label: Order
+        type: number
+        sortable: true
+        invisible: true

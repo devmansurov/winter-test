@@ -1,0 +1,10 @@
+name: Hits
+form: $/pp/kistochki/models/hit/fields.yaml
+modelClass: Pp\Kistochki\Models\Hit
+defaultRedirect: pp/kistochki/hits
+create:
+    redirect: 'pp/kistochki/hits/update/:id'
+    redirectClose: pp/kistochki/hits
+update:
+    redirect: pp/kistochki/hits
+    redirectClose: pp/kistochki/hits

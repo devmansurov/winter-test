@@ -1,0 +1,10 @@
+name: categories
+form: $/pp/kistochki/models/category/fields.yaml
+modelClass: Pp\Kistochki\Models\Category
+defaultRedirect: pp/kistochki/categories
+create:
+    redirect: 'pp/kistochki/categories/update/:id'
+    redirectClose: pp/kistochki/categories
+update:
+    redirect: pp/kistochki/categories
+    redirectClose: pp/kistochki/categories

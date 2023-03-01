@@ -1,0 +1,99 @@
+fields:
+    title:
+        label: 'Заголовок'
+        span: auto
+        required: 1
+        attributes:
+            maxlength: '80'
+        type: text
+        comment: 'Максимальное количество символов 80'
+    slug:
+        label: Slug
+        span: auto
+        preset:
+            field: title
+            type: slug
+        required: 1
+        type: text
+        comment: 'Разрешенные символы: A-z 0-10 -_'
+    menu_title:
+        label: 'Заголовок в меню'
+        span: auto
+        type: text
+        required: 1
+        preset:
+            field: title
+            type: exact
+        defaultFrom: title
+    status:
+        label: 'Статус'
+        span: auto
+        default: 0
+        type: switch
+    link_weight:
+        label: 'Вес ссылки'
+        span: auto
+        placeholder: 0-100
+        default: '1'
+        attributes:
+            min: '0'
+            max: '100'
+            maxlength: '3'
+        containerAttributes: {  }
+        type: number
+    column:
+        label: 'Колонка'
+        options:
+            - '0'
+            - '1'
+            - '2'
+        span: auto
+        default: '1'
+        attributes:
+            min: '1'
+            max: '2'
+        type: balloon-selector
+        comment: 'Расположение в меню'
+tabs:
+    fields:
+        excerpt:
+            label: 'Краткое описание'
+            span: full
+            required: 0
+            type: richeditor
+            hidden: 1
+            tab: Описание
+        description:
+            label: 'Описание'
+            size: large
+            span: full
+            type: richeditor
+            tab: 'Описание'
+        'seo[meta_title]':
+            label: 'SEO заголовок'
+            span: auto
+            type: text
+            preset:
+                field: title
+                type: exact
+            defaultFrom: title
+            attributes:
+                maxlength: '80'
+            comment: Максимальное количество символов 80
+            tab: SEO
+        'seo[meta_desc]':
+            label: 'SEO описание'
+            span: auto
+            attributes:
+                maxlength: '191'
+            type: text
+            comment: 'Максимальное количество символов 191'
+            tab: SEO
+        images:
+            label: Картинки
+            nameFrom: title
+            descriptionFrom: description
+            span: full
+            type: partial
+            path: field_images
+            tab: Картинки

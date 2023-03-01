@@ -1,0 +1,10 @@
+name: Images
+form: $/pp/kistochki/models/image/fields.yaml
+modelClass: Pp\Kistochki\Models\Image
+defaultRedirect: pp/kistochki/images
+create:
+    redirect: 'pp/kistochki/images/update/:id'
+    redirectClose: pp/kistochki/images
+update:
+    redirect: pp/kistochki/images
+    redirectClose: pp/kistochki/images

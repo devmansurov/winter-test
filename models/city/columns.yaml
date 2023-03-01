@@ -1,0 +1,10 @@
+columns:
+    title:
+        label: Город
+        type: text
+        searchable: true
+        sortable: true
+    status:
+        label: Работает
+        type: text
+        sortable: true

@@ -1,0 +1,10 @@
+name: Sliders
+form: $/pp/kistochki/models/slider/fields.yaml
+modelClass: Pp\Kistochki\Models\Slider
+defaultRedirect: pp/kistochki/sliders
+create:
+    redirect: 'pp/kistochki/sliders/update/:id'
+    redirectClose: pp/kistochki/sliders
+update:
+    redirect: pp/kistochki/sliders
+    redirectClose: pp/kistochki/sliders

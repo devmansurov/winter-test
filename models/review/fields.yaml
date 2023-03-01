@@ -1,0 +1,39 @@
+fields:
+    title:
+        label: Загаловок
+        span: auto
+        required: 1
+        type: text
+    name:
+        label: Пользователь
+        span: auto
+        required: 1
+        type: text
+    text:
+        label: Отзыв
+        size: ''
+        span: full
+        type: richeditor
+    rating:
+        label: Рейтинг
+        span: auto
+        type: number
+    created_at:
+        label: Дата
+        mode: date
+        span: auto
+        type: datepicker
+    tags:
+        label: Теги
+        nameFrom: title
+        descriptionFrom: description
+        span: full
+        type: partial
+        path: field_tags
+    images:
+        label: Картинки
+        nameFrom: title
+        descriptionFrom: description
+        span: full
+        type: partial
+        path: field_images

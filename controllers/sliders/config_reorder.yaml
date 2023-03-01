@@ -1,0 +1,5 @@
+title: Sliders
+modelClass: Pp\Kistochki\Models\Slider
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar
