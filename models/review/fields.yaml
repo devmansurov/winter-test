@@ -23,21 +23,17 @@ fields:
         mode: date
         span: auto
         type: datepicker
-tabs:
-    fields:
-        tags:
-            label: Теги
-            nameFrom: title
-            descriptionFrom: description
-            span: full
-            type: partial
-            path: field_tags
-            tab: 'Теги'
-        images:
-            label: Картинки
-            nameFrom: title
-            descriptionFrom: description
-            span: full
-            type: partial
-            path: field_images
-            tab: 'Картинка'
+    tags:
+        label: Теги
+        nameFrom: title
+        descriptionFrom: description
+        span: full
+        type: partial
+        path: field_tags
+    images:
+        label: Картинки
+        nameFrom: title
+        descriptionFrom: description
+        span: full
+        type: partial
+        path: field_images

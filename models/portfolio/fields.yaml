@@ -4,22 +4,17 @@ fields:
         span: auto
         default: '0'
         type: number
-tabs:
-    fields:
-        images:
-            label: Картинки
-            nameFrom: title
-            descriptionFrom: description
-            span: full
-            type: partial
-            path: field_images
-            tab: 'Картинка'
-        tags:
-            label: Теги
-            nameFrom: title
-            descriptionFrom: description
-            span: full
-            type: partial
-            path: field_tags
-            tab: 'Теги'
-
+    tags:
+        label: Теги
+        nameFrom: title
+        descriptionFrom: description
+        span: full
+        type: partial
+        path: field_tags
+    images:
+        label: Картинки
+        nameFrom: title
+        descriptionFrom: description
+        span: full
+        type: partial
+        path: field_images

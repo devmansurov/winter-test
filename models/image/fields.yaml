@@ -1,22 +1,20 @@
 fields:
     title:
         label: Заголовок
-        span: auto
+        span: left
         type: text
     alt:
-        label: alt
-        span: auto
+        label: Alt
+        span: right
         type: text
     src:
         label: Картинка
         mode: image
-        imageWidth: '240'
-        imageHeight: '320'
         useCaption: true
         thumbOptions:
             mode: crop
             extension: auto
-        span: full
+        span: auto
         type: fileupload
     src_mini:
         label: 'Картинка (мини)'
@@ -25,7 +23,7 @@ fields:
         thumbOptions:
             mode: crop
             extension: auto
-        span: full
+        span: auto
         type: fileupload
     order:
         label: Order

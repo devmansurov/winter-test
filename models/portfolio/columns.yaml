@@ -1,8 +1,4 @@
 columns:
-    id:
-        label: ID
-        type: number
-        sortable: true
     order:
-        label: Порядок
+        label: Order
         type: number

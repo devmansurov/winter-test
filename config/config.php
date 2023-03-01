@@ -37,10 +37,10 @@ return [
         'title' => 'Автозаполнитель услуг',
         'class' => \Pp\Kistochki\Database\Seeds\SeedServicesTable::class,
       ],
-      'reviews' => [
-        'title' => 'Автозаполнитель отзывов',
-        'class' => \Pp\Kistochki\Database\Seeds\SeedReviewsTable::class,
-      ],
+      // 'reviews' => [
+      //   'title' => 'Автозаполнитель отзывов',
+      //   'class' => \Pp\Kistochki\Database\Seeds\SeedReviewsTable::class,
+      // ],
       'posts' => [
         'title' => 'Автозаполнитель фейковых вакансии, акции, карты лояльности, абонементы, сертификаты, гарантия и качество',
         'class' => \Pp\Kistochki\Database\Seeds\SeedPostsTable::class,

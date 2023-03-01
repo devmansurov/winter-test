@@ -10,6 +10,8 @@ class Services extends Controller
 {
     public function all(Request $request)
     {
+        // City ID
+        $city = (array) $request->get('city');
         // Items per page
         $perPage = (int) $request->get('perPage');
         // Get limited items
@@ -31,7 +33,9 @@ class Services extends Controller
         // Load relations
         $with = (array) $request->get('with');
 
-        $services = Service::when(count($with), function ($query) use ($with) {
+        $services = Service::when(count($city), function ($query) use ($city) {
+            return $query->whereIn('city_id', $city);
+        })->when(count($with), function ($query) use ($with) {
             return $query->with($with);
         })->when(count($hideIds), function ($query) use ($hideIds) {
             return $query->whereNotIn('id', $hideIds);

@@ -4,6 +4,7 @@ namespace Pp\Kistochki\Database\Seeds;
 
 use Seeder;
 use Pp\Kistochki\Models\District;
+use Pp\Kistochki\Models\DistrictCategory;
 
 class SeedDistrictsTable extends Seeder
 {
@@ -37,7 +38,7 @@ class SeedDistrictsTable extends Seeder
         ];
 
         foreach ($districts as $district) {
-            District::updateOrCreate(['title' => $district['title']], $district);
+            DistrictCategory::updateOrCreate(['title' => $district['title']], $district);
         }
     }
 }

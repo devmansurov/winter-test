@@ -4,6 +4,7 @@ namespace Pp\Kistochki\Models;
 
 use Model;
 use Pp\Kistochki\Enums\TagType;
+use Pp\Kistochki\Enums\CategoryType;
 use Pp\Kistochki\Classes\Helper;
 
 /**
@@ -12,12 +13,21 @@ use Pp\Kistochki\Classes\Helper;
 class Category extends Model
 {
     use \Winter\Storm\Database\Traits\Validation;
+    use \Winter\Storm\Database\Traits\Sortable;
 
+    public $implement = [
+        'Winter.Storm.Database.Behaviors.Sortable',
+        'Winter.Storm.Database.Behaviors.Purgeable'
+    ];
+    
+    const SORT_ORDER = 'order';
 
     /**
      * @var string The database table used by the model.
      */
     public $table = 'pp_kistochki_categories';
+
+    public $purgeable = ['type'];
 
     /**
      * @var array Validation rules
@@ -31,6 +41,10 @@ class Category extends Model
             'table' => 'pp_kistochki_taggables',
             'name' => 'taggable'
         ]
+    ];
+
+    public $belongsTo = [
+        'seo' => [Seo::class, 'key' => 'seo_id'],
     ];
 
     public function scopeIsService($query)
@@ -53,14 +67,15 @@ class Category extends Model
 
     public function beforeCreate()
     {
-        $routeNameOrPostType = request()->input('type', Helper::getRoute());
-        $this->type = match ($routeNameOrPostType) {
-            'job' || 'promotion' || 'loyalty' || 'abonement' || 'certificate' || 'quality' => Helper::getPostType($routeNameOrPostType)['id'],
-            'services' => 1,
-            'reviews' => 2,
-            'portfolios' => 3,
-            default => $this->type
-        };
+        $this->type = CategoryType::SERVICE;
+        // $routeNameOrPostType = request()->input('type', Helper::getRoute());
+        // $this->type = match ($routeNameOrPostType) {
+        //     'job' || 'promotion' || 'loyalty' || 'abonement' || 'certificate' || 'quality' => Helper::getPostType($routeNameOrPostType)['id'],
+        //     'services' => 1,
+        //     'reviews' => 2,
+        //     'portfolios' => 3,
+        //     default => $this->type
+        // };
     }
 
     public function filterFields($fields, $context = null)

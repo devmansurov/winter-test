@@ -15,5 +15,6 @@ class Districts extends Controller
     public function __construct()
     {
         parent::__construct();
+        BackendMenu::setContext('Pp.Kistochki', 'cities', 'districts');
     }
 }

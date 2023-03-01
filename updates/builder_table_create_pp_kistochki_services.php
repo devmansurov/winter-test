@@ -12,14 +12,19 @@ class BuilderTableCreatePpKistochkiServices extends Migration
         Schema::create('pp_kistochki_services', function ($table) {
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
-            $table->string('title')->nullable();
+            $table->string('title');
+            $table->string('subtitle')->nullable();
+            $table->text('excerpt')->nullable();
             $table->text('description')->nullable();
-            $table->string('slug')->nullable();
+            $table->string('slug');
+            $table->integer('link_weight')->default(0);
             $table->smallInteger('order')->default(0);
             $table->boolean('pro')->default(0);
-            $table->integer('price_id')->nullable();
+            $table->boolean('hit')->default(0);
             $table->boolean('status')->default(0);
-            $table->integer('city_id')->nullable();
+            $table->integer('price_id')->nullable();
+            $table->integer('city_id');
+            $table->integer('category_id')->nullable();
             $table->integer('seo_id')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
