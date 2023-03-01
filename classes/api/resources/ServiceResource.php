@@ -27,23 +27,13 @@ class ServiceResource extends JsonResource
      */
     public function toArray($request)
     {
-        $hasPrice = $this->price->master && $this->price->master_night || $this->price->pro_master && $this->price->pro_master_night || $this->price->super_master && $this->price->super_master_night;
-        
         return $this->filterFields([
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
             'slug' => $this->slug,
-            // 'order' => $this->order,
-            'price' => $this->when($this->relationLoaded('price') && $hasPrice, function () {
-                return new PriceResource($this->price);
-            }),
-            'seo' => $this->whenLoaded('seo', function () {
-                return new SeoResource($this->seo);
-            }),
-            'city' => $this->whenLoaded('city', function () {
-                return new CityResource($this->city);
-            }),
+            'price' => $this->price,
+            'order' => $this->order,
             'tags' => $this->whenLoaded('tags', function () {
                 return new TagCollection($this->tags);
             }),

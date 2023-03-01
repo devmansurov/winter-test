@@ -29,8 +29,8 @@ class SeoResource extends JsonResource
     {
 
         return $this->filterFields([
-            'meta_title' => $this->when($this->meta_title, $this->meta_title),
-            'meta_desc' => $this->when($this->meta_desc, $this->meta_desc),
+          'meta_title' => $this->meta_title,
+            'meta_desc' => $this->meta_desc,
         ], $request);
     }
 

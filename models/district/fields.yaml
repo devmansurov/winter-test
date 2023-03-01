@@ -3,22 +3,7 @@ fields:
         label: Название
         span: auto
         type: text
-    slug:
-        label: Slug
-        span: auto
-        required: 1
-        preset:
-            field: title
-            type: slug
-        type: text
-    district_category:
-        label: Категория участка
-        nameFrom: title
-        descriptionFrom: description
-        span: right
-        required: 1
-        type: relation
-    status:
-        label: Статус
-        span: left
+    is_metro:
+        label: Метро
+        span: full
         type: switch

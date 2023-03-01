@@ -5,30 +5,3 @@ columns:
     slug:
         label: Slug
         type: text
-    status:
-        label: Статус
-        type: inetis-list-switch
-        icon: true
-        titleTrue: 'Отключить категорию'
-        titleFalse: 'Включить категорию'
-        textTrue: 'Да'
-        textFalse: 'Нет'
-    link_weight:
-        label: Вес ссылки
-        type: number
-        sortable: true
-    order:
-        label: Order
-        type: number
-        sortable: true
-        invisible: true
-    created_at:
-        label: Создано
-        type: date
-        sortable: true
-        invisible: true
-    updated_at:
-        label: Обновлено
-        type: date
-        sortable: true
-        invisible: true

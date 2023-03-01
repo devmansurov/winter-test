@@ -4,12 +4,8 @@ namespace Pp\Kistochki\Database\Seeds;
 
 use Str;
 use Seeder;
-use Pp\Kistochki\Models\Hit;
-use Pp\Kistochki\Models\Seo;
-use Pp\Kistochki\Models\City;
-use Pp\Kistochki\Models\Price;
-use Pp\Kistochki\Models\Service;
 use Pp\Kistochki\Models\Category;
+use Pp\Kistochki\Models\Service;
 
 class SeedServicesTable extends Seeder
 {
@@ -18,47 +14,16 @@ class SeedServicesTable extends Seeder
         $services = $this->getServices();
 
         foreach ($services as $service) {
-          $category = $this->getServiceCategory($service['category_id']);
-          $city = City::inRandomOrder()->first();
-          $isPro = mt_rand(0,1);
-          $isHit = mt_rand(0,1);
-          $model = Service::create([
-              'title' => $service['title'],
-              'subtitle' => $service['title'],
-              'link_weight' => mt_rand(0, 100),
-              'description' => $service['comment'],
-              'slug' => Str::slug($service['title']),
-              'pro' => $isPro,
-              'hit' => $isHit,
-              'status' => mt_rand(0,1),
-              'category_id' => $category->id,
-              'city_id' => $city->id
-          ]);
+            $model = Service::create([
+                'title' => $service['title'],
+                'description' => $service['comment'],
+                'slug' => Str::slug($service['title']),
+                // 'price' => $service['price_max'],
+                'status' => 1,
+            ]);
 
-          $price = [
-            'master' => mt_rand(250, 10000),
-            'master_night' => mt_rand(350, 15000),
-            'pro_master' => mt_rand(550, 15000),
-            'pro_master_night' => mt_rand(750, 18000),
-          ];
-
-          if($isPro) {
-            $price['super_master'] = mt_rand(950, 18000);
-            $price['super_master_night'] = mt_rand(1200, 20000);
-          }
-
-          $price = Price::create($price);
-          $model->price_id = $price->id;
-
-          $seo = [
-            'meta_title' => $service['title'],
-            'meta_desc' => $service['comment'],
-          ];
-
-          $seo = Seo::create($seo);
-          $model->seo_id = $seo->id;
-
-          $model->save();
+            $category = $this->getServiceCategory($service['category_id']);
+            $model->categories()->save($category);
         }
     }
 

@@ -4,18 +4,6 @@ columns:
         type: text
         searchable: true
         sortable: true
-    district_category:
-        label: 'Категория'
-        type: text
-        searchable: true
-        sortable: true
-        select: title
-        relation: district_category
-    status:
-        label: Статус
-        type: inetis-list-switch
-        icon: true
-        titleTrue: 'Деактивировать участку'
-        titleFalse: 'Активировать участку'
-        textTrue: 'Да'
-        textFalse: 'Нет'
+    is_metro:
+        label: Метро
+        type: switch

@@ -28,10 +28,20 @@ class ImageResource extends JsonResource
     public function toArray($request)
     {
         return $this->filterFields([
-            'big' => $this->when($this->src, $this->src->path),
-            'mini' => $this->when($this->src_mini, $this->src_mini->path),
-            'alt' => $this->when($this->alt, $this->alt),
-            'title' => $this->when($this->title, $this->title),
+            'big' => $this->when($this->src, function () {
+                return [
+                    'src' => $this->src->path,
+                    'alt' => $this->alt,
+                    'title' => $this->title,
+                ];
+            }),
+            'mini' => $this->when($this->src_mini, function () {
+                return [
+                    'src' => $this->src_mini->path,
+                    'alt' => $this->alt,
+                    'title' => $this->title,
+                ];
+            }),
         ], $request);
     }
 

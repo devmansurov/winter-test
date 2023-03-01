@@ -31,13 +31,10 @@ class HitResource extends JsonResource
             'title' => $this->title,
             'slug' => $this->slug,
             'price' => $this->price,
-            // 'date' => [
-            //     'created' => $this->created_at,
-            //     'updated' => $this->updated_at,
-            // ],
-            'images' => $this->whenLoaded('images', function () {
-                return new ImageCollection($this->images);
-            }),
+            'date' => [
+                'created' => $this->created_at,
+                'updated' => $this->updated_at,
+            ],
             'services' => $this->whenLoaded('services', function () {
                 return new ServiceCollection($this->services);
             })

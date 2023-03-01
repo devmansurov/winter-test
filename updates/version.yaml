@@ -25,6 +25,7 @@
 1.0.9:
     - 'Создание таблицу категорий'
     - builder_table_create_pp_kistochki_categories.php
+    - builder_table_create_pp_kistochki_categorizables.php
 1.0.10:
     - 'Создание таблицу картинок'
     - builder_table_create_pp_kistochki_images.php
@@ -33,7 +34,6 @@
     - 'Создание таблицу контактов'
     - builder_table_create_pp_kistochki_contacts.php
     - builder_table_create_pp_kistochki_contactables.php
-1.0.12: 'Добавление автозаполнитель список городов'
 1.0.13: 'Добавление автозаполнитель список метро'
 1.0.14: 'Добавление автозаполнитель салонов'
 1.0.15: 'Добавление автозаполнитель тегов'
@@ -43,16 +43,20 @@
 1.0.19:
     - 'Создание таблицу городов'
     - builder_table_create_pp_kistochki_cities.php
-1.0.20:
+1.0.20: 'Добавление автозаполнитель список городов'
+1.0.21:
     - 'Создание таблицу цены'
     - builder_table_create_pp_kistochki_prices.php
-1.0.21:
+1.0.22:
     - 'Создание таблицу для SEO'
     - builder_table_create_pp_kistochki_seos.php
-1.0.22:
+1.0.23:
     - 'Создание таблицу для Хиты'
     - builder_table_create_pp_kistochki_hits.php
     - builder_table_create_pp_kistochki_hitables.php
+2.0.0:
+    - 'Добавление автозаполнитель пользователей'
+    - DatabaseSeeder.php
 2.0.1:
     - 'Created table pp_kistochki_promotions'
     - builder_table_create_pp_kistochki_promotions.php
@@ -119,24 +123,3 @@
 2.0.22:
     - 'Updated table pp_kistochki_reviews'
     - builder_table_update_pp_kistochki_reviews_6.php
-2.0.23:
-    - 'Created table pp_kistochki_menus'
-    - builder_table_create_pp_kistochki_menus.php
-2.0.24:
-    - 'Created table pp_kistochki_goals'
-    - builder_table_create_pp_kistochki_goals.php
-2.0.25:
-    - 'Created table pp_kistochki_sliders'
-    - builder_table_create_pp_kistochki_sliders.php
-2.0.26:
-    - 'Created table pp_kistochki_callbacks'
-    - builder_table_create_pp_kistochki_callbacks.php
-2.0.27:
-    - 'Created table pp_kistochki_jobs'
-    - builder_table_create_pp_kistochki_jobs.php
-2.0.28:
-    - 'Created table pp_kistochki_district_categories'
-    - builder_table_create_pp_kistochki_district_categories.php
-2.0.29:
-    - 'Добавление автозаполнитель пользователей'
-    - DatabaseSeeder.php

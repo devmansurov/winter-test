@@ -1,11 +1,11 @@
 fields:
     title:
-        label: 'pp.kistochki::lang.plugin.name'
+        label: Загаловок
         span: auto
         required: 1
         type: text
     slug:
-        label: 'pp.kistochki::lang.model.slug'
+        label: slug
         span: auto
         required: 1
         preset:
@@ -13,21 +13,21 @@ fields:
             type: slug
         type: text
     order:
-        label: 'pp.kistochki::lang.model.order'
+        label: Порядок
         span: auto
         type: number
     status:
-        label: 'pp.kistochki::lang.model.status'
+        label: Статус
         span: full
         type: switch
     created_at:
-        label: 'pp.kistochki::lang.model.created_at'
+        label: Создано
         span: auto
         readOnly: true
         mode: date
         type: datepicker
     updated_at:
-        label: 'pp.kistochki::lang.model.updated_at'
+        label: Обновлено
         mode: date
         span: auto
         default: now
@@ -35,14 +35,14 @@ fields:
 tabs:
     fields:
         text_short:
-            label: 'pp.kistochki::lang.model.text_short'
+            label: короткий текст
             size: ''
             span: full
             required: 1
             type: richeditor
             tab: Разное
         text:
-            label: 'pp.kistochki::lang.model.text'
+            label: текст
             size: ''
             span: full
             type: richeditor
@@ -64,10 +64,10 @@ tabs:
             type: textarea
             tab: SEO
         images:
-            label: 'pp.kistochki::lang.model.images'
+            label: 'Картинка'
             nameFrom: title
             descriptionFrom: description
             span: full
             type: partial
             path: field_images
-            tab: 'pp.kistochki::lang.model.images'
+            tab: 'Картинка'

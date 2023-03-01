@@ -12,11 +12,8 @@ class BuilderTableCreatePpKistochkiDistricts extends Migration
         Schema::create('pp_kistochki_districts', function ($table) {
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
-            $table->string('title');
-            $table->string('slug');
-            $table->integer('order')->default(0);
-            $table->boolean('status')->default(0);
-            $table->integer('district_category_id');
+            $table->string('title')->nullable();
+            $table->boolean('is_metro')->default(0);
         });
     }
 
