@@ -15,13 +15,15 @@ class BuilderTableCreatePpKistochkiPromotions extends Migration
             $table->string('slug');
             $table->integer('sort_order')->default(0);
             $table->integer('city_id');
+            $table->text('text');
+            $table->string('sub_title', 255);
             $table->boolean('status')->default(false);
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('deleted_at')->nullable();
         });
     }
-    
+
     public function down()
     {
         Schema::dropIfExists('pp_kistochki_promotions');

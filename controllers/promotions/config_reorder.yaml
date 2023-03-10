@@ -1,5 +1,6 @@
-title: Promotions
+title: News
 modelClass: Pp\Kistochki\Models\Promotion
-nameFrom: sort_order
+# Attribute name
+nameFrom: title
 toolbar:
     buttons: reorder_toolbar

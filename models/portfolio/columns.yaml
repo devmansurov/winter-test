@@ -4,5 +4,9 @@ columns:
         type: number
         sortable: true
     sort_order:
-        label: Вес ссылки
+        label: Порядок
         type: number
+        sortable: true
+    status:
+        label: Статус
+        type: switch

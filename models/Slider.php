@@ -50,7 +50,7 @@ class Slider extends Model
     //     'promotion' => [
     //         'Pp\Kistochki\Models\Post',
     //         'scope' => 'isPromotion',
-    //         'key' => 'promotion_id', 
+    //         'key' => 'promotion_id',
     //         'otherKey' => 'id'
     //     ]
     // ];

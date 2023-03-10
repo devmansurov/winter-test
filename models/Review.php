@@ -3,17 +3,16 @@
 namespace Pp\Kistochki\Models;
 
 use Model;
-use Pp\Kistochki\Classes\Helper;
-use Winter\Storm\Database\Builder;
+use Pp\Kistochki\Classes\BaseModel;
 
 /**
  * Model
  */
-class Review extends Model
+class Review extends BaseModel
 {
-    use \Winter\Storm\Database\Traits\Validation;
 
-
+    public $timestamps = false;
+    protected $slugs=[];
     /**
      * @var string The database table used by the model.
      */
@@ -23,6 +22,10 @@ class Review extends Model
      * @var array Validation rules
      */
     public $rules = [
+        'title' => self::HTML_TITLE_RULE,
+        'name' => self::HTML_TITLE_RULE,
+        'text' => self::DESCRIPTION_RULE,
+        'status' => self::STATUS_RULE,
     ];
 
     public $morphToMany = [

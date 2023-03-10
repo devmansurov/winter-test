@@ -36,7 +36,7 @@ class Portfolios extends Controller
         $hideFields = array_merge($hideFields,$this->hideFields);
 
         // Prepare query
-        $resource = Portfolio::when(count($with), function ($query) use ($with) {
+        $resource = Portfolio::where('status', true)->when(count($with), function ($query) use ($with) {
             return $query->with($with);
         })
             ->when(count($hideIds), function ($query) use ($hideIds) {

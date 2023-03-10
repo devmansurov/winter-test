@@ -38,10 +38,10 @@ class Job extends Model
         ],
         'description' => 'required|min:4|max:65535',
         'city' => 'required',
-    ]; 
+    ];
 
     public $belongsTo = [
         'seo' => [Seo::class, 'key' => 'seo_id'],
         'city' => City::class,
     ];
-} 
+}

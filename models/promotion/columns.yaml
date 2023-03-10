@@ -8,23 +8,15 @@ columns:
         type: text
         searchable: true
         sortable: true
-    sort_order:
-        label: Вес ссылки
-        type: number
-        sortable: true
     status:
         label: Статус
-        type: text
-        sortable: true
-    created_at:
-        label: Создано
-        type: datetime
+        type: switch
         sortable: true
     updated_at:
         label: Обновлено
         type: datetime
         sortable: true
-    deleted_at:
-        label: Удален
-        type: datetime
+    sort_order:
+        label: Порядок
+        type: number
         sortable: true

@@ -30,7 +30,7 @@ class NewsResource extends BaseResource
             'id' => $this->id,
             'title' => $this->title,
             'slug' => $this->slug,
-            'order' => $this->order,
+            'order' => $this->sort_order,
             'images' => $this->whenLoaded('images', function () {
                 return new ImageCollection($this->images);
             }),
@@ -40,6 +40,7 @@ class NewsResource extends BaseResource
                 return new SeoResource($this->seo);
             }),
             'date' =>$this->updated_at,
+            'status' =>$this->status
 
         ], $request);
     }

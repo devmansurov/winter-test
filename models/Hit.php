@@ -96,7 +96,7 @@ class Hit extends Model
         //     'max:191',
         // ],
     ];
-    
+
     /**
      * @var array Attribute names to encode and decode using JSON.
      */

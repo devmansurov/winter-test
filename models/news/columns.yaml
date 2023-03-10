@@ -7,10 +7,6 @@ columns:
         label: Загаловок
         type: text
         sortable: true
-    sort_order:
-        label: Вес ссылки
-        type: text
-        sortable: true
     slug:
         label: slug
         type: text
@@ -18,5 +14,13 @@ columns:
     created_at:
         label: Создано
         type: date
+        sortable: true
+    status:
+        label: Статус
+        type: switch
+        sortable: true
+    sort_order:
+        label: Порядок
+        type: number
         sortable: true
 

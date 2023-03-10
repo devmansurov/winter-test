@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Pp\Kistochki\Classes\Api\Controllers\Promotions;
 use Pp\Kistochki\Controllers\Callbacks;
 use Pp\Kistochki\Classes\Api\Controllers\Districts;
 use Pp\Kistochki\Classes\Api\Controllers\Saloons;
@@ -14,6 +15,7 @@ use Pp\Kistochki\Classes\Api\Controllers\Hits;
 use Pp\Kistochki\Classes\Api\Controllers\Goals;
 use Pp\Kistochki\Classes\Api\Controllers\Menus;
 use Pp\Kistochki\Controllers\Settings;
+use Pp\Kistochki\Classes\Api\Controllers\Infos;
 
 // pp/kistochki/api
 Route::prefix('api')->group(function () {
@@ -32,13 +34,8 @@ Route::prefix('api')->group(function () {
   Route::get('hits', [Hits::class, 'all']);
   Route::get('hits/{item}', [Hits::class, 'item']);
   Route::get('reviews', [Reviews::class, 'all']);
-  // Route::get('jobs', [Posts::class, 'jobs']);
   Route::get('promotions', [Promotions::class, 'all']);
-//  Route::get('promotions/{item}', [Posts::class, 'item']); // Todo
-  // Route::get('loyalties', [Posts::class, 'loyalties']);
-  // Route::get('abonements', [Posts::class, 'abonements']);
-  // Route::get('certificates', [Posts::class, 'certificates']);
-  // Route::get('qualities', [Posts::class, 'qualities']);
+  Route::get('promotions/{item}', [Promotions::class, 'item']);
   Route::get('thumb', [Images::class, 'crop']);
   Route::get('portfolios', [Portfolios::class, 'all']);
   Route::get('news', [Newses::class, 'all']);
@@ -49,4 +46,6 @@ Route::prefix('api')->group(function () {
   Route::get('goals/{item}', [Goals::class, 'item']);
   Route::post('callback', [Callbacks::class, 'store']);
   Route::post('settings/set/{key}', [Settings::class, 'set'])->middleware('web');
+  Route::get('info', [Infos::class, 'all']);
+  Route::get('info/{item}', [Infos::class, 'item']);
 });

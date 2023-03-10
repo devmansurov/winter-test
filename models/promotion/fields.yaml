@@ -11,15 +11,58 @@ fields:
             type: slug
         type: text
     sort_order:
-        label: Вес ссылки
+        label: Порядок
         span: auto
         type: number
     status:
         label: Статус
         span: auto
         type: switch
-    Images:
-        label: 'Картинка'
-        span: full
-        path: field_images
-        type: partial
+tabs:
+    fields:
+        sub_title:
+            label: Короткий текст
+            size: large
+            span: full
+            required: 1
+            type: richeditor
+            tab: Описание
+        text:
+            label: Текст
+            size: large
+            span: full
+            required: 1
+            type: richeditor
+            tab: Описание
+        seo@relationcontroller:
+            label: Relation Controller
+            commentAbove: 'RelationController used as a partial field type.'
+            type: partial
+            tab: SEO
+        'seo[meta_title]':
+            label: SEO заголовок
+            span: auto
+            type: text
+            preset:
+                field: title
+                type: exact
+            attributes:
+                maxlength: '80'
+            #            comment: Максимальное количество символов 80
+            tab: SEO
+        'seo[meta_desc]':
+            label: SEO описание
+            span: auto
+            attributes:
+                maxlength: '191'
+            type: text
+            #            comment: 'Максимальное количество символов 191'
+            tab: SEO
+        images:
+            label: Картинка
+            nameFrom: title
+            descriptionFrom: description
+            span: full
+            type: partial
+            path: field_images
+            tab: Картинка

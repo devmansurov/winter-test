@@ -1,9 +1,13 @@
 fields:
     sort_order:
-        label: Вес ссылки
+        label: Порядок
         span: auto
         default: '0'
         type: number
+    status:
+        label: Статус
+        span: left
+        type: switch
 tabs:
     fields:
         images:
@@ -13,7 +17,7 @@ tabs:
             span: full
             type: partial
             path: field_images
-            tab: 'Картинка'
+            tab: Картинка
         tags:
             label: Теги
             nameFrom: title
@@ -21,5 +25,4 @@ tabs:
             span: full
             type: partial
             path: field_tags
-            tab: 'Теги'
-
+            tab: Теги

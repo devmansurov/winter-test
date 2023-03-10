@@ -1,4 +1,6 @@
 title: News
 modelClass: Pp\Kistochki\Models\News
+# Attribute name
+nameFrom: title
 toolbar:
     buttons: reorder_toolbar

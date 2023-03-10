@@ -3,13 +3,15 @@
 namespace Pp\Kistochki\Classes\Api\Controllers;
 
 use Illuminate\Http\Request;
+use Pp\Kistochki\Classes\Api\Resources\NewsResource;
+use Pp\Kistochki\Models\News;
 use Pp\Kistochki\Models\Promotion;
 use Pp\Kistochki\Classes\Api\Resources\PromotionResource;
 
 class Promotions extends Controller
 {
     public $withFields = ['images'];
-    public $hideFields = [];
+    public $hideFields = ['id', ''];
     public function all(Request $request)
     {
         // Items per page
@@ -33,7 +35,7 @@ class Promotions extends Controller
         // Load relations
         $with = array_merge((array) $request->get('with'), $this->withFields);
         logger($with);
-        $resource = Promotion::when(count($with), function ($query) use ($with) {
+        $resource = Promotion::where('status', true)->when(count($with), function ($query) use ($with) {
             return $query->with($with);
         })->when(count($hideIds), function ($query) use ($hideIds) {
             return $query->whereNotIn('id', $hideIds);
@@ -60,5 +62,21 @@ class Promotions extends Controller
             ->hide($hideFields);
 //        dump($res);
         return $res;
+    }
+
+    public function item(Request $request, $item)
+    { // Get fields only
+        // write code to get only item by id
+        // added seo for `with fields`
+        $with = array_merge((array) $request->get('with'),array_merge($this->withFields,['seo']));
+        // Hide fields
+        $hideFields = (array)$request->get('hideFields');
+        $hideFields = array_merge($hideFields,$this->hideFields);
+        $resource =Promotion::where('status', true)->when(count($with), function ($query) use ($with) {
+            return $query->with($with);
+        })->where('slug', $item)
+            ->firstOrFail();
+        $res = new PromotionResource($resource);
+        return $res->hide($hideFields);
     }
 }

@@ -1,0 +1,6 @@
+title: Reviews
+modelClass: Pp\Kistochki\Models\Review
+# Attribute name
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar

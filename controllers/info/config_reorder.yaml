@@ -1,0 +1,6 @@
+title: Info
+modelClass: Pp\Kistochki\Models\Info
+# Attribute name
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar

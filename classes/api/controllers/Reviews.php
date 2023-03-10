@@ -3,6 +3,8 @@
 namespace Pp\Kistochki\Classes\Api\Controllers;
 
 use Illuminate\Http\Request;
+use Pp\Kistochki\Classes\Api\Resources\NewsResource;
+use Pp\Kistochki\Models\News;
 use Pp\Kistochki\Models\Review;
 use Pp\Kistochki\Classes\Api\Resources\ReviewResource;
 
@@ -33,7 +35,7 @@ class Reviews extends Controller
         // Load relations
         $with = array_merge((array) $request->get('with'), $this->withFields);
 
-        $reviews = Review::when(count($with), function ($query) use ($with) {
+        $reviews = Review::where('status', true)->when(count($with), function ($query) use ($with) {
             return $query->with($with);
         })->when(count($hideIds), function ($query) use ($hideIds) {
             return $query->whereNotIn('id', $hideIds);
@@ -58,5 +60,20 @@ class Reviews extends Controller
         return ReviewResource::collection($reviews)
           ->only($fields)
           ->hide($hideFields);
+    }
+    public function item(Request $request, $item)
+    { // Get fields only
+        // write code to get only item by id
+        // added seo for `with fields`
+        $with = array_merge((array) $request->get('with'), array_merge($this->withFields,['seo']));
+        // Hide fields
+        $hideFields = (array)$request->get('hideFields');
+        $hideFields = array_merge($hideFields,$this->hideFields);
+        $resource =Review::where('status', true)->when(count($with), function ($query) use ($with) {
+            return $query->with($with);
+        })->where('slug', $item)
+            ->firstOrFail();
+        $res = new NewsResource($resource);
+        return $res->hide($hideFields);
     }
 }

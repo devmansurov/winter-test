@@ -125,6 +125,11 @@ class Menu
                 'url'         => Backend::url("pp/kistochki/news"),
                 'icon'        => 'icon-newspaper-o',
             ],
+            "info" => [
+                'label'       => Helper::lang('info.multiple'),
+                'url'         => Backend::url("pp/kistochki/info"),
+                'icon'        => 'icon-newspaper-o',
+            ],
             "promotions" => [
                 'label'       => Helper::lang('promotion.multiple'),
                 'url'         => Backend::url("pp/kistochki/promotions"),
