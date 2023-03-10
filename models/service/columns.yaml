@@ -47,15 +47,10 @@ columns:
         titleFalse: 'Включить услугу'
         textTrue: 'Да'
         textFalse: 'Нет'
-    link_weight:
-        label: Вес ссылки
+    sort_order:
+        label: Порядок
         type: number
         sortable: true
-    order:
-        label: Order
-        type: number
-        sortable: true
-        invisible: true
     created_at:
         label: Создано
         type: date

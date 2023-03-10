@@ -14,9 +14,9 @@ class Slider extends Model
         'Winter.Storm.Database.Behaviors.Sortable',
         'Winter.Storm.Database.Behaviors.Purgeable'
     ];
-    
-    const SORT_ORDER = 'order';
-    
+
+
+
 
     /**
      * @var string The database table used by the model.
@@ -53,7 +53,7 @@ class Slider extends Model
     //     'promotion' => [
     //         'Pp\Kistochki\Models\Post',
     //         'scope' => 'isPromotion',
-    //         'key' => 'promotion_id', 
+    //         'key' => 'promotion_id',
     //         'otherKey' => 'id'
     //     ]
     // ];

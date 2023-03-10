@@ -9,7 +9,7 @@ class BuilderTableUpdatePpKistochkiReviews extends Migration
     {
         Schema::table('pp_kistochki_reviews', function($table)
         {
-            $table->timestamp('deleted_at')->nullable();
+            $table->boolean('status')->default(false);
         });
     }
     
@@ -17,7 +17,7 @@ class BuilderTableUpdatePpKistochkiReviews extends Migration
     {
         Schema::table('pp_kistochki_reviews', function($table)
         {
-            $table->dropColumn('deleted_at');
+            $table->dropColumn('status');
         });
     }
 }

@@ -3,6 +3,10 @@
 namespace Pp\Kistochki\Models;
 
 use Model;
+use Backend\Widgets\Filter;
+use Pp\Kistochki\Classes\Helper;
+use Pp\Kistochki\Controllers\Saloons;
+use Winter\Storm\Database\Builder;
 
 /**
  * Model
@@ -10,7 +14,6 @@ use Model;
 class Saloon extends Model
 {
     use \Winter\Storm\Database\Traits\Validation;
-
     use \Winter\Storm\Database\Traits\SoftDelete;
 
     protected $dates = ['deleted_at'];
@@ -26,7 +29,7 @@ class Saloon extends Model
      */
     public $rules = [
     ];
-
+ 
     public $belongsTo = [
         'district' => [
             'Pp\Kistochki\Models\District',
@@ -52,4 +55,32 @@ class Saloon extends Model
      * @var array Attribute names to encode and decode using JSON.
      */
     public $jsonable = [];
+
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        $user = \BackendAuth::getUser();
+        if($user) {
+            $defaultCity = Settings::get('defaultCity');
+            $globalCity = Helper::getUserSettings($user, 'city', $defaultCity);
+            Saloon::addGlobalScope('globalCityFilter', function (Builder $builder) use($globalCity) {
+                $builder->where('city_id', $globalCity);
+            });
+        }
+
+        // Saloons::extendListFilterScopes(function(Filter $filter) use ($user)
+        // {
+        //     $scopes = $filter->getScopes();
+        //     $localCity = $scopes['cities']->value;
+        //     if($localCity) {
+        //         Saloon::addGlobalScope('localCityFilter', function (Builder $builder) use($localCity) {
+        //             $builder->withoutGlobalScopes()->where('city_id', array_keys($localCity)[0]);
+        //         });
+        //     }
+        // });
+    }
 }

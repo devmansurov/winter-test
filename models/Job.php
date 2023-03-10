@@ -14,8 +14,8 @@ class Job extends Model
         'Winter.Storm.Database.Behaviors.Sortable',
         'Winter.Storm.Database.Behaviors.Purgeable'
     ];
-    
-    const SORT_ORDER = 'order';
+
+
 
     /**
      * @var string The database table used by the model.
@@ -40,10 +40,10 @@ class Job extends Model
         ],
         'description' => 'required|min:4|max:65535',
         'city' => 'required',
-    ]; 
+    ];
 
     public $belongsTo = [
         'seo' => [Seo::class, 'key' => 'seo_id'],
         'city' => City::class,
     ];
-} 
+}

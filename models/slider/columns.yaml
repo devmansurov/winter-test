@@ -26,7 +26,7 @@ columns:
         titleFalse: 'Включить акцию'
         textTrue: 'Да'
         textFalse: 'Нет'
-    link_weight:
-        label: Вес ссылки
+    sort_order:
+        label: Порядок
         type: number
         sortable: true

@@ -1,4 +1,0 @@
-title: Posts
-modelClass: Pp\Kistochki\Models\Post
-toolbar:
-    buttons: reorder_toolbar

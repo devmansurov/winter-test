@@ -30,11 +30,17 @@ class PromotionResource extends BaseResource
         return $this->filterFields([
             'id' => $this->id,
             'title' => $this->title,
+            'sub_title' => $this->title,
             'slug' => $this->slug,
-            'order' => $this->order,
+            'text' => $this->text,
+            'order' => $this->sort_order,
             'images' => $this->whenLoaded('images', function () {
                 return new ImageCollection($this->images);
-            })
+            }),
+            'seo' => $this->whenLoaded('seo', function () {
+                return new SeoResource($this->seo);
+            }),
+            'status'=>$this->status
         ], $request);
     }
 }

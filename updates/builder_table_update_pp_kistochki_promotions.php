@@ -9,7 +9,8 @@ class BuilderTableUpdatePpKistochkiPromotions extends Migration
     {
         Schema::table('pp_kistochki_promotions', function($table)
         {
-            $table->timestamp('deleted_at')->nullable();
+            $table->integer('seo_id')->nullable();
+            $table->boolean('status')->default(false)->change();
         });
     }
     
@@ -17,7 +18,8 @@ class BuilderTableUpdatePpKistochkiPromotions extends Migration
     {
         Schema::table('pp_kistochki_promotions', function($table)
         {
-            $table->dropColumn('deleted_at');
+            $table->dropColumn('seo_id');
+            $table->boolean('status')->default(null)->change();
         });
     }
 }

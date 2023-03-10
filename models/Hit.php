@@ -17,8 +17,6 @@ class Hit extends Model
         'Winter.Storm.Database.Behaviors.Purgeable'
     ];
 
-    const SORT_ORDER = 'order';
-
     protected $dates = ['deleted_at'];
     protected $with = ['price'];
 
@@ -98,7 +96,7 @@ class Hit extends Model
         //     'max:191',
         // ],
     ];
-    
+
     /**
      * @var array Attribute names to encode and decode using JSON.
      */
@@ -110,8 +108,7 @@ class Hit extends Model
         'excerpt',
         'description',
         'slug',
-        'link_weight',
-        'order',
+        'sort_order',
         'pro',
         'hit',
         'status',

@@ -1,0 +1,6 @@
+title: Portfolios
+modelClass: Pp\Kistochki\Models\Portfolio
+# Attribute name
+nameFrom: sort_order
+toolbar:
+    buttons: reorder_toolbar

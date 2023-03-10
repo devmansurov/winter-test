@@ -6,7 +6,7 @@ fields:
         attributes:
             maxlength: '80'
         type: text
-        comment: 'Максимальное количество символов 80'
+        comment: 'Ограничение символов: МИН: 3, МАКС: 80'
     slug:
         label: Slug
         span: auto
@@ -25,13 +25,14 @@ fields:
             field: title
             type: exact
         defaultFrom: title
+        comment: 'Ограничение символов: МИН: 3, МАКС: 80'
     status:
         label: 'Статус'
         span: auto
         default: 0
         type: switch
-    link_weight:
-        label: 'Вес ссылки'
+    sort_order:
+        label: 'Порядок'
         span: auto
         placeholder: 0-100
         default: '1'
@@ -44,14 +45,14 @@ fields:
     column:
         label: 'Колонка'
         options:
-            - '0'
             - '1'
             - '2'
+            - '3'
         span: auto
-        default: '1'
+        default: '2'
         attributes:
             min: '1'
-            max: '2'
+            max: '3'
         type: balloon-selector
         comment: 'Расположение в меню'
 tabs:

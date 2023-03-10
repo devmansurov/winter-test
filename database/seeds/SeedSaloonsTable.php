@@ -2,6 +2,7 @@
 
 namespace Pp\Kistochki\Database\Seeds;
 
+use Str;
 use Seeder;
 use Pp\Kistochki\Models\Saloon;
 
@@ -22,7 +23,8 @@ class SeedSaloonsTable extends Seeder
                 'long' => $saloon['coordinate_lon'],
                 'city_id' => $saloon['city_id'],
                 'title' => $saloon['title'],
-                'phone' => $saloon['phone'],
+                'slug' => Str::slug($saloon['title']),
+                // 'phone' => $saloon['phone'],
                 'district_id' => mt_rand(1, 6),
                 'status' => 1
             ];

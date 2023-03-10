@@ -18,7 +18,7 @@ class SeedCategoriesTable extends Seeder
             $categories[] = [
                 'title' => $category['title'],
                 'slug' => Str::slug($category['title']),
-                'type' => CategoryType::SERVICE
+                // 'type' => CategoryType::SERVICE
             ];
         }
 

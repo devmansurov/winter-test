@@ -12,12 +12,12 @@ class BuilderTableCreatePpKistochkiJobs extends Migration
         $table->engine = 'InnoDB';
         $table->increments('id')->unsigned();
         $table->string('title');
+        $table->string('subtitle');
         $table->string('slug');
         $table->text('excerpt')->nullable();
         $table->text('description')->nullable();
-        $table->integer('salary')->default(0);
-        $table->boolean('order')->default(0);
-        $table->integer('link_weight')->default(0);
+        $table->integer('salary')->nullable();
+        $table->boolean('sort_order')->default(0);
         $table->boolean('status')->default(0);
         $table->integer('city_id');
         $table->integer('seo_id')->nullable();

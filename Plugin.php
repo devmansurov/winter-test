@@ -2,6 +2,7 @@
 
 namespace Pp\Kistochki;
 
+use Config;
 use Backend;
 use System\Classes\PluginBase;
 use Backend\Models\User;
@@ -13,6 +14,10 @@ class Plugin extends PluginBase
 {
     public function boot()
     {
+        if ($this->app->runningInBackend()) {
+            $this->applyBackendSkin();
+        }
+
         User::extend(function ($model) {
             $model->bindEvent('model.afterCreate', function () use ($model) {
                 UserPreference::forUser($model)->set('backend::backend.preferences', [
@@ -22,6 +27,14 @@ class Plugin extends PluginBase
                 ]);
             });
         });
+    }
+
+    /**
+     * Apply the TailwindUI backend skin as the selected backend skin
+     */
+    protected function applyBackendSkin()
+    {
+        Config::set('cms.backendSkin', \Pp\Kistochki\Skins\KistochkiSkin::class);
     }
 
     public function pluginDetails()

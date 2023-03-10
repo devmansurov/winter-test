@@ -31,13 +31,15 @@ class ReviewResource extends BaseResource
             'name' => $this->name,
             'text' => $this->text,
             'rating' => $this->rating,
-            'date' => $this->created_at->format('d.m.Y'),
+            'date' => $this->created_at,
             'tags' => $this->whenLoaded('tags', function () {
                 return new TagCollection($this->tags);
             }),
             'avatar' => $this->whenLoaded('images', function () {
                 return new ImageCollection($this->images);
             }),
+            'status' => $this->status,
+            'order'=> $this->sort_order,
         ], $request);
     }
 }

@@ -17,3 +17,11 @@ columns:
         label: Дата
         type: date
         sortable: true
+    status:
+        label: Статус
+        type: switch
+        sortable: true
+    sort_order:
+        label: Порядок
+        type: number
+        sortable: true

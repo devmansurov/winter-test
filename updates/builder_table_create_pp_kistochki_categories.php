@@ -18,10 +18,7 @@ class BuilderTableCreatePpKistochkiCategories extends Migration
             $table->text('excerpt')->nullable();
             $table->text('description')->nullable();
             $table->boolean('status')->default(0);
-            $table->integer('order')->default(0);
             $table->integer('sort_order')->default(0);
-            $table->smallInteger('type');
-            $table->smallInteger('link_weight')->default(1);
             $table->integer('category_id')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();

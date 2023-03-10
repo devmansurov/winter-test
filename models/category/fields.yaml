@@ -19,13 +19,8 @@ fields:
         defaultFrom: title
         type: text
         hidden: 0
-    order:
-        label: 'Номер сортировки'
-        span: left
-        type: number
-        hidden: 1
-    link_weight:
-        label: Вес ссылки
+    sort_order:
+        label: Порядок
         span: auto
         required: 1
         default: '1'

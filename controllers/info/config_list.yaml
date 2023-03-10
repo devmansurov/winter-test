@@ -1,0 +1,13 @@
+list: $/pp/kistochki/models/info/columns.yaml
+modelClass: Pp\Kistochki\Models\info
+title: info
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+showSorting: 1
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'pp/kistochki/info/update/:id'

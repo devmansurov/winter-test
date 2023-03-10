@@ -28,7 +28,7 @@ class Cities extends Controller
         $with = (array)$request->get('with');
 
         $cities = City::when(count($with), function ($query) use ($with) {
-            return $query->with([ 'tags']);
+            return $query->with($with);
         })
             ->when(count($hideIds), function ($query) use ($hideIds) {
             return $query->whereNotIn('id', $hideIds);

@@ -1,6 +1,6 @@
 list: $/pp/kistochki/models/menu/columns.yaml
 modelClass: Pp\Kistochki\Models\Menu
-title: Menus
+title: Меню
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
 showCheckboxes: true

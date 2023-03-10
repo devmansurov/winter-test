@@ -4,6 +4,7 @@ namespace Pp\Kistochki\Classes\Api\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Pp\Kistochki\Models\Promotion;
+use Log;
 
 class BaseResource extends JsonResource
 {
@@ -27,6 +28,7 @@ class BaseResource extends JsonResource
 
     protected function filterFields($array, $request)
     {
+
         if (request()->get('hideEmpty')) {
             $array = collect($array)->filter(function ($value, $key) {
                 return $value != null || $value != '';
@@ -38,6 +40,9 @@ class BaseResource extends JsonResource
         } elseif (count($this->hiddenFields)) {
             return collect($array)->forget($this->hiddenFields)->toArray();
         }
+
+        // check status field in the array if it exists then check status value
+
 
         return $array;
     }

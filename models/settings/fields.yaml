@@ -1,12 +1,6 @@
 fields:
-    title:
-        label: Заголовок
-        span: auto
-        placeholder: 'Введите заголовок'
-        required: 1
-        type: text
-    districts:
-        label: Автозаполнитель список метро
+    callback_status:
+        label: Обратный звонок
         span: full
         default: true
         type: switch

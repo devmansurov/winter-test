@@ -16,8 +16,7 @@ class BuilderTableCreatePpKistochkiMenus extends Migration
         $table->string('slug');
         $table->text('excerpt')->nullable();
         $table->text('description')->nullable();
-        $table->boolean('order')->default(0);
-        $table->integer('link_weight')->default(0);
+        $table->boolean('sort_order')->default(0);
         $table->boolean('status')->default(0);
         $table->integer('seo_id')->nullable();
         $table->smallInteger('column')->default(0);

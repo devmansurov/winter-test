@@ -1,0 +1,10 @@
+name: info
+form: $/pp/kistochki/models/info/fields.yaml
+modelClass: Pp\Kistochki\Models\info
+defaultRedirect: pp/kistochki/info
+create:
+    redirect: 'pp/kistochki/info/update/:id'
+    redirectClose: pp/kistochki/info
+update:
+    redirect: pp/kistochki/info
+    redirectClose: pp/kistochki/info

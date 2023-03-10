@@ -75,28 +75,8 @@ class Tag extends Model
         }
     }
 
-    public function beforeCreate()
+    public function beforeSave()
     {
-        $routeNameOrPostType = request()->input('type', Helper::getRoute());
-        // $type = request()->input('type');
-        // if ($type) {
-        //     $postType = Helper::getPostType($type);
-        //     $this->type = $postType['id'];
-        //     return;
-        // }
-        $this->type = match ($routeNameOrPostType) {
-            'job' || 'promotion' || 'loyalty' || 'abonement' || 'certificate' || 'quality' => Helper::getPostType($routeNameOrPostType)['id'],
-            'services' => 1,
-            'reviews' => 2,
-            'portfolios' => 3,
-            default => $this->type
-        };
-    }
-
-    public function filterFields($fields, $context = null)
-    {
-        if (Helper::isRoute('posts')) {
-            $fields->type->hidden = true;
-        }
+        $this->type = Helper::getTagType();
     }
 }

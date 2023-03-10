@@ -25,8 +25,8 @@ fields:
         span: auto
         required: 1
         type: relation
-    link_weight:
-        label: Вес ссылки
+    sort_order:
+        label: Порядок
         span: auto
         required: 1
         default: '1'
@@ -42,10 +42,6 @@ fields:
         span: auto
         required: 1
         type: relation
-    order:
-        label: 'Номер сортировки'
-        span: left
-        type: number
     pro:
         label: 'Премиум услуга'
         span: right

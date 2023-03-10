@@ -17,8 +17,7 @@ class BuilderTableCreatePpKistochkiServices extends Migration
             $table->text('excerpt')->nullable();
             $table->text('description')->nullable();
             $table->string('slug');
-            $table->integer('link_weight')->default(0);
-            $table->smallInteger('order')->default(0);
+            $table->smallInteger('sort_order')->default(0);
             $table->boolean('pro')->default(0);
             $table->boolean('hit')->default(0);
             $table->boolean('status')->default(0);

@@ -31,6 +31,7 @@ class CityResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'slug' => $this->code,
+            'contacts' => $this->when($this->relationLoaded('contacts') && count($this->contacts), ContactResource::collection($this->contacts)->resolve()),
         ], $request);
     }
 

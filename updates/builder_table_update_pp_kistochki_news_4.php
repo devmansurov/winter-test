@@ -9,7 +9,8 @@ class BuilderTableUpdatePpKistochkiNews4 extends Migration
     {
         Schema::table('pp_kistochki_news', function($table)
         {
-            $table->boolean('status')->default(false);
+            $table->boolean('status')->default(false)->change();
+            $table->integer('sort_order')->nullable(false)->change();
         });
     }
     
@@ -17,7 +18,8 @@ class BuilderTableUpdatePpKistochkiNews4 extends Migration
     {
         Schema::table('pp_kistochki_news', function($table)
         {
-            $table->dropColumn('status');
+            $table->boolean('status')->default(null)->change();
+            $table->integer('sort_order')->nullable()->change();
         });
     }
 }

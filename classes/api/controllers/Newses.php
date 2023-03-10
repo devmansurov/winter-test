@@ -3,15 +3,14 @@
 namespace Pp\Kistochki\Classes\Api\Controllers;
 
 use Illuminate\Http\Request;
-use Pp\Kistochki\Models\Portfolio;
-use Pp\Kistochki\Classes\Api\Resources\PromotionResource;
 use Pp\Kistochki\Models\News;
 use Pp\Kistochki\Classes\Api\Resources\NewsResource;
 use Illuminate\Support\Facades\DB;
 class Newses extends Controller
 {
     public $withFields = ['images'];
-    public $hideFields = ['tags', 'seo'];
+    public $hideFieldsAll = ['tags', 'seo', 'text'];
+    public $hideFields = ['id'];
 
     public function all(Request $request)
     {
@@ -24,18 +23,18 @@ class Newses extends Controller
         // Hide districts with specified id's
         $hideIds = (array)$request->get('hideIds');
         // Hide fields
-        $hideFields = (array)$request->get('hideFields');
+        $hideFieldsAll = (array)$request->get('hideFields');
 
         // Get fields only
-        $fields = (array)$request->get('fields');
+        $fields = (array)$request->get('with');
         // Search query
         $query = $request->get('query', $request->get('q', $request->get('search')));
         // Search field
         $searchField = $request->get('searchField', 'title');
         // Load relations
         $with = array_merge((array) $request->get('with'), $this->withFields);
-        $hideFields = array_merge($hideFields,$this->hideFields);
-        $resource = News::when(count($with), function ($query) use ($with) {
+        $hideFields = array_merge($hideFieldsAll,$this->hideFieldsAll);
+        $resource = News::where('status', true)->when(count($with), function ($query) use ($with) {
             return $query->with($with);
         })
             ->when(count($hideIds), function ($query) use ($hideIds) {
@@ -67,24 +66,18 @@ class Newses extends Controller
 
     public function item(Request $request, $item)
     { // Get fields only
-        \DB::enableQueryLog();
-        $fields = (array)$request->get('fields');
+        // write code to get only item by id
+        // added seo for `with fields`
+        $with = array_merge((array) $request->get('with'), array_merge($this->withFields,['seo']));
         // Hide fields
         $hideFields = (array)$request->get('hideFields');
-        $with = (array)$request->get('with');
-        $with = array_merge($with, $this->with_fields);
-        $resource = News::where('status', false)->where('slug', $item)
-            ->when(count($with), function ($query) use ($with) {
-                return $query->with($with);
-            })->first()->get();
-//            ->onlyActive()
-//            ->onlyPublished()
-//            ->only($fields)
-//            ->hide($hideFields)
-//        dump($resource);
-//        $res = new NewsResource($resource);
-//        dd(\DB::getQueryLog());
-        return $resource;
+        $hideFields = array_merge($hideFields,$this->hideFields);
+        $resource =News::where('status', true)->when(count($with), function ($query) use ($with) {
+            return $query->with($with);
+        })->where('slug', $item)
+            ->firstOrFail();
+        $res = new NewsResource($resource);
+        return $res->hide($hideFields);
     }
 
 

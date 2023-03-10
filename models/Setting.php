@@ -5,7 +5,7 @@ use Model;
 /**
  * Model
  */
-class Callback extends Model
+class Setting extends Model
 {
     public $implement = ['System.Behaviors.SettingsModel'];
 
@@ -20,6 +20,8 @@ class Callback extends Model
 
     public function initSettingsData()
     {
+        $city = City::first();
+        $this->defaultCity = $city ? $city->id : 0;
         $this->callback_status = 1;
     }
 }

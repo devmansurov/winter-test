@@ -9,7 +9,8 @@ class BuilderTableUpdatePpKistochkiNews3 extends Migration
     {
         Schema::table('pp_kistochki_news', function($table)
         {
-            $table->date('created_at')->nullable()->unsigned(false)->default(null)->comment(null)->change();
+            $table->boolean('status')->default(false)->change();
+            $table->integer('sort_order')->default(0)->change();
         });
     }
     
@@ -17,7 +18,8 @@ class BuilderTableUpdatePpKistochkiNews3 extends Migration
     {
         Schema::table('pp_kistochki_news', function($table)
         {
-            $table->timestamp('created_at')->nullable()->unsigned(false)->default(null)->comment(null)->change();
+            $table->boolean('status')->default(null)->change();
+            $table->integer('sort_order')->default(null)->change();
         });
     }
 }

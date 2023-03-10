@@ -16,7 +16,7 @@ fields:
             7: Viber
         showSearch: true
         span: auto
-        default: '5'
+        default: '1'
         type: dropdown
     status:
         label: Статус

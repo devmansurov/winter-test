@@ -8,6 +8,6 @@ columns:
     status:
         label: Работает
         type: switch
-    order:
-        label: Order
+    sort_order:
+        label: Порядок
         type: number

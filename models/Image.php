@@ -16,7 +16,6 @@ class Image extends Model
      * @var string The database table used by the model.
      */
     public $table = 'pp_kistochki_images';
-    const SORT_ORDER = 'order';
     /**
      * @var array Validation rules
      */
@@ -32,4 +31,6 @@ class Image extends Model
      * @var array Attribute names to encode and decode using JSON.
      */
     public $jsonable = [];
+
+    public $timestamps = false;
 }

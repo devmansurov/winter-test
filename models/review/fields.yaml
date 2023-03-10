@@ -9,9 +9,17 @@ fields:
         span: auto
         required: 1
         type: text
+    status:
+        label: Статус
+        span: auto
+        type: switch
+    sort_order:
+        label: 'Порядок'
+        span: auto
+        type: number
     text:
         label: Отзыв
-        size: ''
+        size: large
         span: full
         type: richeditor
     rating:
@@ -22,18 +30,23 @@ fields:
         label: Дата
         mode: date
         span: auto
+        default: now
         type: datepicker
-    tags:
-        label: Теги
-        nameFrom: title
-        descriptionFrom: description
-        span: full
-        type: partial
-        path: field_tags
-    images:
-        label: Картинки
-        nameFrom: title
-        descriptionFrom: description
-        span: full
-        type: partial
-        path: field_images
+tabs:
+    fields:
+        tags:
+            label: Теги
+            nameFrom: title
+            descriptionFrom: description
+            span: full
+            type: partial
+            path: field_tags
+            tab: Теги
+        images:
+            label: Картинки
+            nameFrom: title
+            descriptionFrom: description
+            span: full
+            type: partial
+            path: field_images
+            tab: Картинка

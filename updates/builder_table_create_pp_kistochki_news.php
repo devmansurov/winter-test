@@ -11,13 +11,17 @@ class BuilderTableCreatePpKistochkiNews extends Migration
         {
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable();
+            $table->text('text')->nullable();
+            $table->text('text_short')->nullable();
+            $table->integer('city_id')->nullable();
+            $table->integer('seo_id')->nullable();
+            $table->boolean('sort_order')->default(0);
+            $table->boolean('status')->default(0);
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('deleted_at')->nullable();
-            $table->string('title')->nullable();
-            $table->string('slug')->nullable();
-            $table->text('text_short')->nullable();
-            $table->text('text')->nullable();
         });
     }
     

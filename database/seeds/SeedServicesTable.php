@@ -25,7 +25,7 @@ class SeedServicesTable extends Seeder
           $model = Service::create([
               'title' => $service['title'],
               'subtitle' => $service['title'],
-              'link_weight' => mt_rand(0, 100),
+              // 'link_weight' => mt_rand(0, 100),
               'description' => $service['comment'],
               'slug' => Str::slug($service['title']),
               'pro' => $isPro,

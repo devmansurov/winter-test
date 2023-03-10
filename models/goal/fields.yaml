@@ -1,17 +1,21 @@
 fields:
     title:
-        label: Заголовок
-        span: auto
+        label: 'Заголовок'
+        type: richeditor
+        toolbarButtons: fullscreen|bold|italic|underline|fontSize|color|paragraphStyle|paragraphFormat|clearFormatting|selectAll|html
+        size: tiny
+        span: left
+        comment: 'Максимальное количество символов 80'
         required: 1
-        type: text
     slug:
         label: Slug
         span: auto
-        required: 1
+        hidden: 1
         preset:
             field: title
             type: slug
         type: text
+        comment: 'Разрешенные символы: A-z 0-10 -_'
     subtitle:
         label: Подзаголовок
         span: auto
@@ -24,10 +28,11 @@ fields:
         nameFrom: title
         descriptionFrom: description
         span: auto
-        required: 1
+        required: 0
         type: relation
-    order:
-        label: 'Номер сортировки'
+        hidden: 1
+    sort_order:
+        label: 'Порядок'
         span: left
         type: number
         hidden: 1
@@ -54,15 +59,20 @@ tabs:
             type: repeater
             form:
                 fields:
-                    info_title:
+                    title:
                         label: 'Заголовок'
+                        type: richeditor
+                        toolbarButtons: fullscreen|bold|italic|underline|fontSize|color|paragraphStyle|paragraphFormat|clearFormatting|selectAll|html
+                        size: tiny
                         span: auto
-                        type: text
-                    info_text:
-                        label: 'Текст'
-                        size: ''
+                        comment: 'Максимальное количество символов 80'
+                    description:
+                        label: 'Описание'
+                        type: richeditor
+                        toolbarButtons: fullscreen|bold|italic|underline|fontSize|color|paragraphStyle|paragraphFormat|clearFormatting|selectAll|html
+                        size: tiny
                         span: auto
-                        type: textarea
+                        comment: 'Максимальное количество символов 80'
         images:
             label: Картинки
             nameFrom: title

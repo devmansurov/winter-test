@@ -20,8 +20,8 @@ columns:
         titleFalse: 'Включить меню'
         textTrue: 'Да'
         textFalse: 'Нет'
-    order:
-        label: Order
+    sort_order:
+        label: Порядок
         type: number
         sortable: true
         invisible: true

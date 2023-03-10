@@ -13,8 +13,8 @@ fields:
         size: tiny
         span: right
         comment: 'Максимальное количество символов 80'
-    link_weight:
-        label: 'Вес ссылки'
+    sort_order:
+        label: 'Порядок'
         span: right
         placeholder: 0-100
         default: '1'
@@ -104,4 +104,4 @@ tabs:
             on: Да
             off: Нет
             tab: 'Метка'
-        
+

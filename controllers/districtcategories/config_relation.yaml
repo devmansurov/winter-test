@@ -1,0 +1,12 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+cities:
+    label: город
+    view:
+        form: $/pp/kistochki/models/districtcategorycity/fields.yaml
+        list: $/pp/kistochki/models/districtcategorycity/columns.yaml
+    manage:
+        form: $/pp/kistochki/models/districtcategorycity/fields.yaml
+        list: $/pp/kistochki/models/districtcategorycity/columns.yaml
