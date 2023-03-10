@@ -20,13 +20,6 @@ navigation:
                 permissions:
                     - admin_kistochki
                     - developer_kistochki
-            side-menu-item-1:
-                label: landing
-                url: 'pp/kistochki/posts/update/17?type=promotion'
-                icon: icon-sitemap
-                permissions:
-                    - admin_kistochki
-                    - developer_kistochki
 permissions:
     admin_kistochki:
         tab: 'pp.kistochki::lang.plugin.name'

@@ -23,6 +23,7 @@ columns:
         sortable: true
         select: title
         relation: city
+        invisible: true
     pro:
         label: Премиум
         type: inetis-list-switch
@@ -47,12 +48,8 @@ columns:
         titleFalse: 'Включить услугу'
         textTrue: 'Да'
         textFalse: 'Нет'
-    link_weight:
+    sort_order:
         label: Вес ссылки
-        type: number
-        sortable: true
-    order:
-        label: Order
         type: number
         sortable: true
         invisible: true

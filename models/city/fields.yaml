@@ -3,22 +3,34 @@ fields:
         label: 'Название города'
         span: auto
         type: text
-    code:
+    slug:
         label: 'Код (slug)'
         span: auto
         preset:
             field: title
             type: slug
         type: text
-    lat:
-        label: Lat
-        span: auto
-        type: number
-    long:
-        label: Long
-        span: auto
-        type: number
     status:
         label: Статус
         span: auto
         type: switch
+tabs:
+  fields:
+    lat:
+        label: Lat
+        span: auto
+        type: number
+        tab: 'Координаты'
+    long:
+        label: Long
+        span: auto
+        type: number
+        tab: 'Координаты'
+    contacts:
+        label: Контакты
+        tab: Контакты
+        nameFrom: title
+        descriptionFrom: description
+        span: full
+        type: partial
+        path: field_contacts

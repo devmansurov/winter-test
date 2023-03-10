@@ -41,10 +41,10 @@ return [
       //   'title' => 'Автозаполнитель отзывов',
       //   'class' => \Pp\Kistochki\Database\Seeds\SeedReviewsTable::class,
       // ],
-      'posts' => [
-        'title' => 'Автозаполнитель фейковых вакансии, акции, карты лояльности, абонементы, сертификаты, гарантия и качество',
-        'class' => \Pp\Kistochki\Database\Seeds\SeedPostsTable::class,
-      ],
+      // 'posts' => [
+      //   'title' => 'Автозаполнитель фейковых вакансии, акции, карты лояльности, абонементы, сертификаты, гарантия и качество',
+      //   'class' => \Pp\Kistochki\Database\Seeds\SeedPostsTable::class,
+      // ],
       'users' => [
         'title' => 'Автозаполнитель пользователей',
         'class' => \Pp\Kistochki\Database\Seeds\SeedUsers::class,

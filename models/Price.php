@@ -3,7 +3,6 @@
 namespace Pp\Kistochki\Models;
 
 use Model;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 
 /**
  * Model
@@ -25,29 +24,6 @@ class Price extends Model
         //     'required'
         // ]
     ];
-    
-    /**
-     * @var array Attribute names to encode and decode using JSON.
-     */
-    public $jsonable = [];
-
-    protected function setMasterAttribute($value)
-    {
-        $this->attributes['master'] = $value;
-        $this->attributes['master_night'] = $this->getPrice($value);
-    }
-
-    protected function setProMasterAttribute($value)
-    {
-        $this->attributes['pro_master'] = $value;
-        $this->attributes['pro_master_night'] = $this->getPrice($value);
-    }
-
-    protected function setSuperMasterAttribute($value)
-    {
-        $this->attributes['super_master'] = $value;
-        $this->attributes['super_master_night'] = $this->getPrice($value);
-    }
 
     protected function calcPercentage($price, $percentage = 20)
     {
@@ -56,6 +32,35 @@ class Price extends Model
 
     protected function getPrice($dayPrice)
     {
+        $dayPrice = (int) $dayPrice;
         return $dayPrice > 0 ? $this->calcPercentage($dayPrice) : $dayPrice;
+    }
+
+    public function beforeSave()
+    {
+        if($this->master) {
+            if(!$this->master_night) {
+                $this->master_night = $this->getPrice($this->master);
+            }
+        } else {
+            $this->master = null;
+            $this->master_night = null;
+        }
+        if($this->pro_master) {
+            if(!$this->pro_master_night) {
+                $this->pro_master_night = $this->getPrice($this->pro_master);
+            }
+        } else {
+            $this->pro_master = null;
+            $this->pro_master_night = null;
+        }
+        if($this->super_master) {
+            if(!$this->super_master_night) {
+                $this->super_master_night = $this->getPrice($this->super_master);
+            }
+        } else {
+            $this->super_master = null;
+            $this->super_master_night = null;
+        }
     }
 }

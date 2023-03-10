@@ -2,8 +2,12 @@
 
 namespace Pp\Kistochki\Database\Seeds;
 
+use Pp\Kistochki\Models\District;
+use Str;
 use Seeder;
 use Pp\Kistochki\Models\Saloon;
+use Pp\Kistochki\Models\DistrictLine;
+use Pp\Kistochki\Models\DistrictStation;
 
 // use Pp\Kistochki\Enums\PostType;
 
@@ -11,24 +15,45 @@ class SeedSaloonsTable extends Seeder
 {
     public function run()
     {
+        $faker = \Faker\Factory::create();
         $data = [];
         $saloons = $this->getSaloons();
 
         foreach ($saloons as $saloon) {
+            $subtitle = $faker->sentence(mt_rand(2, 4));
+            $excerpt = $faker->sentences(mt_rand(2, 4), true);
+            $description = $faker->paragraphs(mt_rand(2, 4), true);
+            $districtLine = DistrictLine::inRandomOrder()->first();
+            $districtStation = DistrictStation::where('district_line_id', $districtLine->id)->inRandomOrder()->first();
+            $contactTypes = [1,2,5,7];
             $data[] = [
                 'schedule' => $saloon['schedule'],
                 'address' => $saloon['address'],
                 'lat' => $saloon['coordinate_lat'],
                 'long' => $saloon['coordinate_lon'],
-                'city_id' => $saloon['city_id'],
+                'city_id' => $districtLine->city_id,
                 'title' => $saloon['title'],
-                'phone' => $saloon['phone'],
-                'district_id' => mt_rand(1, 6),
-                'status' => 1
+                'subtitle' => $subtitle,
+                'excerpt' => $excerpt,
+                'description' => $description,
+                'slug' => Str::slug($saloon['title']),
+                'status' => mt_rand(0,1),
+                'bookable' => mt_rand(0,1),
+                'district_line_id' => $districtLine->id,
+                'district_station_id' => $districtStation->id,
             ];
         }
 
         Saloon::insert($data);
+
+        $saloons = Saloon::all();
+
+        foreach($saloons as $saloon) {
+          $saloon->contacts()->create([
+            'type' => $faker->randomElement($contactTypes),
+            'value' => $faker->e164PhoneNumber()
+          ]);
+        }
     }
 
     public function getSaloons()

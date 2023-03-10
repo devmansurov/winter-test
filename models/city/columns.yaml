@@ -5,6 +5,10 @@ columns:
         searchable: true
         sortable: true
     status:
-        label: Работает
-        type: text
-        sortable: true
+        label: Статус
+        type: inetis-list-switch
+        icon: true
+        titleTrue: 'Отключить город'
+        titleFalse: 'Включить город'
+        textTrue: 'Да'
+        textFalse: 'Нет'

@@ -18,7 +18,6 @@ class News extends Model
      * @var string The database table used by the model.
      */
     public $table = 'pp_kistochki_news';
-    const SORT_ORDER = 'order';
 
     public $hasOne = [
         'seo' => [

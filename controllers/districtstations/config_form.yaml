@@ -1,0 +1,10 @@
+name: DistrictStations
+form: $/pp/kistochki/models/districtstation/fields.yaml
+modelClass: Pp\Kistochki\Models\DistrictStation
+defaultRedirect: pp/kistochki/districtstations
+create:
+    redirect: 'pp/kistochki/districtstations/update/:id'
+    redirectClose: pp/kistochki/districtstations
+update:
+    redirect: pp/kistochki/districtstations
+    redirectClose: pp/kistochki/districtstations

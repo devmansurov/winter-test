@@ -4,7 +4,9 @@ namespace Pp\Kistochki\Classes\Api\Controllers;
 
 use Illuminate\Http\Request;
 use Pp\Kistochki\Models\Service;
+use Pp\Kistochki\Models\Category;
 use Pp\Kistochki\Classes\Api\Resources\ServiceResource;
+use Pp\Kistochki\Classes\Api\Resources\CategoryResource;
 
 class Services extends Controller
 {
@@ -18,6 +20,12 @@ class Services extends Controller
         $limit = (int) $request->get('limit');
         // Order field
         $order = (array) $request->get('order');
+        // Status field
+        $status = $request->get('status');
+        // Hit field
+        $hit = $request->get('hit');
+        // Pro field
+        $pro = $request->get('pro');
         // Hide districts with specified id's
         $hideIds = (array) $request->get('hideIds');
         // Get fields only
@@ -47,7 +55,9 @@ class Services extends Controller
             }
         })->when($query && mb_strlen(trim($query)) > 0, function ($q) use ($query, $searchField) {
             return $q->where('title', 'like', '%' . $query . '%');
-        });
+        })->when($status !== null, fn($q) => $q->where('status', (bool) $status))
+          ->when($pro !== null, fn($q) => $q->where('pro', (bool) $pro))
+          ->when($hit !== null, fn($q) => $q->where('hit', (bool) $hit));
 
         if ($limit) {
             $services = $services->limit($limit)->get();
@@ -60,5 +70,42 @@ class Services extends Controller
         return ServiceResource::collection($services)
           ->only($fields)
           ->hide($hideFields);
+    }
+
+    public function item(Request $request, $item)
+    {
+        $with = (array) $request->get('with');
+
+        $service = Service::when(count($with), function ($query) use ($with) {
+            return $query->with($with);
+        })->where('id', $item)
+            ->orWhere('slug', $item)
+            ->firstOrFail();
+            
+        return new ServiceResource($service);
+    }
+
+    public function categories(Request $request)
+    {
+        $with = (array) $request->get('with');
+
+        $categories = Category::when(count($with), function ($query) use ($with) {
+            return $query->with($with);
+        })->get();
+            
+        return CategoryResource::collection($categories);
+    }
+
+    public function category(Request $request, $item)
+    {
+        $with = (array) $request->get('with');
+
+        $category = Category::when(count($with), function ($query) use ($with) {
+            return $query->with($with);
+        })->where('id', $item)
+            ->orWhere('slug', $item)
+            ->firstOrFail();
+            
+        return new CategoryResource($category);
     }
 }

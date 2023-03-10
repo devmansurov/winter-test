@@ -31,4 +31,15 @@ class City extends Model
      * @var array Attribute names to encode and decode using JSON.
      */
     public $jsonable = [];
+
+    public $morphToMany = [
+        'contacts' => [
+            'Pp\Kistochki\Models\Contact',
+            'table' => 'pp_kistochki_contactables',
+            'name' => 'contactable'
+        ]
+    ];
+
+    // Load relations globally by default
+    protected $with = ['contacts'];
 }

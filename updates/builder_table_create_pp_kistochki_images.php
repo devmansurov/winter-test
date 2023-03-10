@@ -12,12 +12,8 @@ class BuilderTableCreatePpKistochkiImages extends Migration
         Schema::create('pp_kistochki_images', function ($table) {
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
-            $table->string('key')->nullable();
-            $table->smallInteger('order')->default(0);
-            $table->integer('parent_id')->nullable();
-            $table->boolean('status')->default(1);
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
+            $table->string('alt')->nullable();
+            $table->string('title')->nullable();
         });
     }
 

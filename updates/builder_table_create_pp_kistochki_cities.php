@@ -11,11 +11,11 @@ class BuilderTableCreatePpKistochkiCities extends Migration
     {
         $table->engine = 'InnoDB';
         $table->increments('id')->unsigned();
-        $table->integer('y_city_id')->nullable();
+        $table->integer('static_id')->nullable();
         $table->string('title');
+        $table->string('slug');
         $table->double('lat', 10, 0)->nullable();
         $table->double('long', 10, 0)->nullable();
-        $table->string('code')->nullable();
         $table->boolean('status')->default(0);
     });
 }

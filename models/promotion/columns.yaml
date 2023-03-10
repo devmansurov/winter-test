@@ -1,35 +1,30 @@
 columns:
     id:
-        label: 'pp.kistochki::lang.model.id'
+        label: ID
         type: number
         sortable: true
     title:
-        label: 'pp.kistochki::lang.model.title'
+        label: Загаловок
         type: text
         searchable: true
         sortable: true
-    order:
-        label: 'pp.kistochki::lang.model.order'
+    sort_order:
+        label: Вес ссылки
         type: number
         sortable: true
     status:
-        label: 'pp.kistochki::lang.model.status'
+        label: Статус
         type: text
         sortable: true
     created_at:
-        label: 'pp.kistochki::lang.model.created_at'
+        label: Создано
         type: datetime
         sortable: true
     updated_at:
-        label: 'pp.kistochki::lang.model.updated_at'
+        label: Обновлено
         type: datetime
         sortable: true
     deleted_at:
-        label: 'pp.kistochki::lang.model.deleted_at'
+        label: Удален
         type: datetime
-        sortable: true
-    sort_order:
-        label: 'pp.kistochki::lang.model.sort_order'
-        type: number
-        invisible: true
         sortable: true

@@ -1,0 +1,10 @@
+name: DistrictLines
+form: $/pp/kistochki/models/districtline/fields.yaml
+modelClass: Pp\Kistochki\Models\DistrictLine
+defaultRedirect: pp/kistochki/districtlines
+create:
+    redirect: 'pp/kistochki/districtlines/update/:id'
+    redirectClose: pp/kistochki/districtlines
+update:
+    redirect: pp/kistochki/districtlines
+    redirectClose: pp/kistochki/districtlines

@@ -2,6 +2,7 @@
 
 namespace Pp\Kistochki\Classes;
 use Config;
+use Pp\Kistochki\Enums\TagType;
 
 class Helper
 {
@@ -54,6 +55,18 @@ class Helper
         throw new \RuntimeException("Post type \"$type\" is undefined.");
     }
 
+    public static function getTagType()
+    {
+      $uri = request()->path();
+      $is = fn($st) => str_contains($uri, "kistochki/$st");
+      if($is("reviews")) return TagType::REVIEW;
+      if($is("services")) return TagType::SERVICE;
+      if($is("portfolios")) return TagType::PORTFOLIO;
+      if($is("jobs")) return TagType::JOB;
+      if($is("promotions")) return TagType::PROMOTION;
+      throw new \RuntimeException("Tag type is undefined.");
+    }
+
     public static function isRoute($name)
     {
         return request()->segment(4) == $name;
@@ -82,5 +95,48 @@ class Helper
           }
         }
         return $translation;
+    }
+
+    public static function getUserSettings(\Backend\Models\User $user, $key = null, $default = null)
+    {
+      $userPreference = \Backend\Models\UserPreference::forUser($user);
+      $userSettings = (array) $userPreference->get('pp::kistochki.settings', []);
+
+      return $key ? (isset($userSettings[$key]) ? $userSettings[$key] : $default) : $userSettings;
+    }
+
+    public static function getValidationRules($fields)
+    {
+      $allRules = [
+        'title' => [
+          'required',
+          'min:3',
+          'max:80'
+        ],
+        'slug' => [
+          'required',
+          'min:3',
+          'max:80'
+        ],
+        'menu_title' => [
+          'required',
+          'min:3',
+          'max:80'
+        ],
+        'column' => [
+          'required',
+          'numeric',
+          'min:1',
+          'max:3',
+        ],
+      ];
+
+      $rules = [];
+
+      foreach ($fields as $key => $value) {
+        if(isset($allRules[$key])) $rules[$key] = $allRules[$key];
+      }
+
+      return $rules;
     }
 }

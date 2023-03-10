@@ -19,7 +19,7 @@ class Promotion extends Model
      * @var string The database table used by the model.
      */
     public $table = 'pp_kistochki_promotions';
-    const SORT_ORDER = 'order';
+
     /**
      * @var array Validation rules
      */

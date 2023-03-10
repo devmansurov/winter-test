@@ -1,13 +1,48 @@
 columns:
+    title:
+        label: 'Название'
+        type: text
+        searchable: true
+        sortable: true
     schedule:
         label: 'Рабочие дни'
         type: text
+        sortable: true
     address:
         label: Адрес
         type: text
+        sortable: true
+    district_station:
+        label: 'Станция метро'
+        type: text
+        searchable: true
+        sortable: true
+        select: title
+        relation: district_station
+    district_line:
+        label: 'Линия метро'
+        type: text
+        searchable: true
+        sortable: true
+        select: title
+        relation: district_line
+    bookable:
+        label: Можно записаться
+        type: inetis-list-switch
+        icon: true
+        titleTrue: 'Отключить запись к салону'
+        titleFalse: 'Включить запись к салону'
+        textTrue: 'Да'
+        textFalse: 'Нет'
     status:
-        label: Работает
-        type: switch
-    order:
-        label: Order
+        label: Статус
+        type: inetis-list-switch
+        icon: true
+        titleTrue: 'Отключить салон'
+        titleFalse: 'Включить салон'
+        textTrue: 'Да'
+        textFalse: 'Нет'
+    sort_order:
+        label: Вес ссылки
         type: number
+        invisible: true

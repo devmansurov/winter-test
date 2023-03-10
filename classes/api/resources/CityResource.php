@@ -30,7 +30,8 @@ class CityResource extends JsonResource
         return $this->filterFields([
             'id' => $this->id,
             'title' => $this->title,
-            'slug' => $this->code,
+            'slug' => $this->slug,
+            'contacts' => $this->when($this->relationLoaded('contacts') && count($this->contacts), ContactResource::collection($this->contacts)->resolve()),
         ], $request);
     }
 

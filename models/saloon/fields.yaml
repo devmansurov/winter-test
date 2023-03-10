@@ -3,55 +3,103 @@ fields:
         label: Название
         span: auto
         type: text
+        required: 1
     schedule:
         label: 'Рабочие дни'
         span: auto
         type: text
-    order:
-        label: Order
+        required: 1
+    subtitle:
+        label: Подзаголовок
+        span: auto
+        type: text
+    sort_order:
+        label: Вес ссылки
         span: auto
         default: '0'
         type: number
-    address:
-        label: Адрес
-        span: auto
-        required: 1
-        type: text
-    district:
-        label: Метро
-        nameFrom: title
-        descriptionFrom: description
-        span: auto
-        required: 1
-        type: relation
-    city:
-        label: Город
-        nameFrom: title
-        descriptionFrom: description
-        span: auto
-        required: 1
-        type: relation
-    lat:
-        label: Lat
-        span: auto
-        type: number
-    long:
-        label: Long
-        span: auto
-        type: number
-    description:
-        label: Описание
-        size: ''
-        span: full
-        type: richeditor
+        hidden: 1
     status:
         label: Статус
-        span: auto
+        span: right
         type: switch
-    contacts:
-        label: Контакты
-        nameFrom: title
-        descriptionFrom: description
-        span: full
-        type: partial
-        path: field_contacts
+    bookable:
+        label: Можно записаться
+        span: right
+        type: switch
+        options:
+        on: Да
+        off: Нет
+    
+tabs:
+    fields:
+        excerpt:
+            label: Краткое описание
+            size: 'small'
+            span: full
+            tab: 'Описание'
+            type: richeditor
+        description:
+            label: Описание
+            size: 'large'
+            span: full
+            tab: 'Описание'
+            type: richeditor
+        address:
+            label: Адрес
+            span: left
+            tab: 'Адрес'
+            required: 1
+            type: text
+        district_line:
+            label: Линия метро
+            nameFrom: title
+            span: right
+            tab: 'Адрес'
+            type: relation
+            placeholder: Выберите линию метро
+            emptyOption: Выберите линию метро
+        district_station:
+            label: Станция метро
+            nameFrom: title
+            span: right
+            tab: 'Адрес'
+            type: relation
+            placeholder: Выберите станцию метро
+            emptyOption: Выберите станцию метро
+            scope: filterStation
+            dependsOn: district_line
+            trigger:
+              action: hide
+              field: district_line
+              condition: value[]
+        lat:
+            label: Широта (latitude)
+            span: left
+            tab: 'Адрес'
+            type: number
+        long:
+            label: Долгота (longitude)
+            span: left
+            tab: 'Адрес'
+            type: number
+        contacts:
+            label: Контакты
+            tab: Контакты
+            nameFrom: title
+            descriptionFrom: description
+            span: full
+            type: partial
+            path: field_contacts
+        logo:
+            label: Логотип
+            mode: image
+            useCaption: true
+            span: auto
+            type: fileupload
+            mimeTypes: webp
+            fileTypes: webp
+            imageHeight: 260
+            imageWidth: 260
+            tab: Картинки
+        

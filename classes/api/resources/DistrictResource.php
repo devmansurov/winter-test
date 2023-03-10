@@ -3,7 +3,7 @@
 namespace Pp\Kistochki\Classes\Api\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Pp\Kistochki\Models\Saloon;
+use Pp\Kistochki\Models\DistrictCategory;
 
 class DistrictResource extends JsonResource
 {
@@ -27,13 +27,18 @@ class DistrictResource extends JsonResource
      */
     public function toArray($request)
     {
+        $isCategory = $this->resource instanceof DistrictCategory;
         return $this->filterFields([
             'id' => $this->id,
             'title' => $this->title,
-            'metro' => $this->is_metro,
-            'saloons' => $this->whenLoaded('saloons', function () {
-                return new SaloonCollection($this->saloons);
-            })
+            'slug' => $this->when($this->slug, $this->slug),
+            'metro' => $this->when($isCategory, $this->is_metro),
+            'districts' => $this->when($isCategory && $this->relationLoaded('districts') && count($this->districts), function () {
+                return self::collection($this->districts)->resolve();
+            }),
+            'attributes' => $this->when($isCategory && $this->cities && count($this->cities), function () {
+                return DistrictAttributeResource::collection($this->cities)->resolve();
+            }),
         ], $request);
     }
 

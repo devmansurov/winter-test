@@ -13,7 +13,7 @@ fields:
         size: tiny
         span: right
         comment: 'Максимальное количество символов 80'
-    link_weight:
+    sort_order:
         label: 'Вес ссылки'
         span: right
         placeholder: 0-100

@@ -14,8 +14,6 @@ class Job extends Model
         'Winter.Storm.Database.Behaviors.Sortable',
         'Winter.Storm.Database.Behaviors.Purgeable'
     ];
-    
-    const SORT_ORDER = 'order';
 
     /**
      * @var string The database table used by the model.

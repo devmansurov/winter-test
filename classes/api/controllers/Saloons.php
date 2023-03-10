@@ -10,12 +10,22 @@ class Saloons extends Controller
 {
     public function all(Request $request)
     {
+        // City ID
+        $city = (array) $request->get('city');
         // Items per page
         $perPage = (int) $request->get('perPage');
         // Get limited items
         $limit = (int) $request->get('limit');
         // Order field
         $order = (array) $request->get('order');
+        // Status field
+        $status = $request->get('status');
+        // Status field
+        $bookable = $request->get('bookable');
+        // District id's
+        $districts = (array) $request->get('district');
+        // District station id's
+        $stations = (array) $request->get('station');
         // Hide districts with specified id's
         $hideIds = (array) $request->get('hideIds');
         // Get fields only
@@ -31,10 +41,16 @@ class Saloons extends Controller
         // Load relations
         $with = (array) $request->get('with');
 
-        $saloons = Saloon::when(count($with), function ($query) use ($with) {
+        $saloons = Saloon::when(count($city), function ($query) use ($city) {
+            return $query->whereIn('city_id', $city);
+        })->when(count($with), function ($query) use ($with) {
             return $query->with($with);
         })->when(count($hideIds), function ($query) use ($hideIds) {
             return $query->whereNotIn('id', $hideIds);
+        })->when(count($districts), function ($query) use ($districts) {
+            return $query->whereIn('district_line_id', $districts);
+        })->when(count($stations), function ($query) use ($stations) {
+            return $query->whereIn('district_station_id', $stations);
         })->when(count($order), function ($query) use ($order) {
             if (isset($order['field'])) {
                 $field = $order['field'];
@@ -43,7 +59,8 @@ class Saloons extends Controller
             }
         })->when($query && mb_strlen(trim($query)) > 0, function ($q) use ($query, $searchField) {
             return $q->where('title', 'like', '%' . $query . '%');
-        });
+        })->when($status !== null, fn($q) => $q->where('status', (bool) $status))
+          ->when($bookable !== null, fn($q) => $q->where('bookable', (bool) $bookable));
 
         if ($limit) {
             $saloons = $saloons->limit($limit)->get();
@@ -56,5 +73,18 @@ class Saloons extends Controller
         return SaloonResource::collection($saloons)
           ->only($fields)
           ->hide($hideFields);
+    }
+
+    public function item(Request $request, $item)
+    {
+        $with = (array) $request->get('with');
+
+        $saloon = Saloon::when(count($with), function ($query) use ($with) {
+            return $query->with($with);
+        })->where('id', $item)
+            ->orWhere('slug', $item)
+            ->firstOrFail();
+            
+        return new SaloonResource($saloon);
     }
 }

@@ -60,16 +60,26 @@ class Menu
                         'url'         => Backend::url("pp/kistochki/cities"),
                         'icon'        => 'icon-map-marker',
                     ],
-                    "districts" => [
-                        'label'       => 'Участки',
-                        'url'         => Backend::url("pp/kistochki/districts"),
+                    "district-lines" => [
+                        'label'       => 'Линии метро',
+                        'url'         => Backend::url("pp/kistochki/districtlines"),
                         'icon'        => 'icon-train',
                     ],
-                    "district-categories" => [
-                        'label'       => 'Категория участка',
-                        'url'         => Backend::url("pp/kistochki/districtcategories"),
+                    "district-stations" => [
+                        'label'       => 'Станции метро',
+                        'url'         => Backend::url("pp/kistochki/districtstations"),
                         'icon'        => 'icon-train',
                     ],
+                    // "districts" => [
+                    //     'label'       => 'Станции метро',
+                    //     'url'         => Backend::url("pp/kistochki/districts"),
+                    //     'icon'        => 'icon-train',
+                    // ],
+                    // "district-categories" => [
+                    //     'label'       => 'Линии метро',
+                    //     'url'         => Backend::url("pp/kistochki/districtcategories"),
+                    //     'icon'        => 'icon-train',
+                    // ],
                 ]
 
             ],

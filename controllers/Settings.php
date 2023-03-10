@@ -1,8 +1,9 @@
 <?php namespace Pp\Kistochki\Controllers;
 
 use BackendMenu;
-use Redirect;
-use Request;        
+use Redirect;     
+use Backend\Models\UserPreference;
+use Request;
 
 class Settings extends \System\Controllers\Settings
 {                       
@@ -28,5 +29,22 @@ class Settings extends \System\Controllers\Settings
         $url = sprintf('%s/update/%s/%s/%s', Request::url(), $this->author, $this->plugin, $this->code);
 
         return Redirect::to($url);
+    }
+
+    public function set(\Illuminate\Http\Request $request, $key)
+    {
+        $rules = [
+            'value' => 'required'
+        ];
+
+        $validator = \Validator::make($request->all(), $rules);
+
+        if (!$validator->fails()) {
+            $settings = UserPreference::forUser();
+            $settings->set('pp::kistochki.settings', [
+                $key => $request->get('value')
+            ]);
+            return response()->json('Success!');
+        }
     }
 }

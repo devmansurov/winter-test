@@ -2,15 +2,14 @@
 
 namespace Pp\Kistochki\Models;
 
-use Model;
+use Pp\Kistochki\Classes\BaseModel;
 
 /**
  * Model
  */
-class Saloon extends Model
+class Saloon extends BaseModel
 {
     use \Winter\Storm\Database\Traits\Validation;
-
     use \Winter\Storm\Database\Traits\SoftDelete;
 
     protected $dates = ['deleted_at'];
@@ -26,18 +25,11 @@ class Saloon extends Model
      */
     public $rules = [
     ];
-
+ 
     public $belongsTo = [
-        'district' => [
-            'Pp\Kistochki\Models\District',
-            // 'key' => 'district_id',
-            // 'otherKey' => 'id'
-        ],
-        'city' => [
-            'Pp\Kistochki\Models\City',
-            // 'key' => 'district_id',
-            // 'otherKey' => 'id'
-        ],
+        'district_line' => DistrictLine::class,
+        'district_station' => DistrictStation::class,
+        'city' => City::class,
     ];
 
     public $morphToMany = [
@@ -47,9 +39,22 @@ class Saloon extends Model
             'name' => 'contactable'
         ]
     ];
+
+    public $attachOne = [
+        'logo' => 'System\Models\File'
+    ];
     
     /**
      * @var array Attribute names to encode and decode using JSON.
      */
     public $jsonable = [];
+
+    // Load relations globally by default
+    protected $with = [
+        'city',
+        'logo',
+        'contacts',
+        'district_line',
+        'district_station',
+    ];
 }

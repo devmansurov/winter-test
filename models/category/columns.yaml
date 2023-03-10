@@ -13,15 +13,10 @@ columns:
         titleFalse: 'Включить категорию'
         textTrue: 'Да'
         textFalse: 'Нет'
-    link_weight:
+    sort_order:
         label: Вес ссылки
         type: number
         sortable: true
-    order:
-        label: Order
-        type: number
-        sortable: true
-        invisible: true
     created_at:
         label: Создано
         type: date

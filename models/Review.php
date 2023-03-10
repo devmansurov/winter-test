@@ -3,6 +3,8 @@
 namespace Pp\Kistochki\Models;
 
 use Model;
+use Pp\Kistochki\Classes\Helper;
+use Winter\Storm\Database\Builder;
 
 /**
  * Model
@@ -16,7 +18,7 @@ class Review extends Model
      * @var string The database table used by the model.
      */
     public $table = 'pp_kistochki_reviews';
-    const SORT_ORDER = 'order';
+
     /**
      * @var array Validation rules
      */
@@ -36,4 +38,26 @@ class Review extends Model
             'name' => 'imageable'
         ]
     ];
+
+    protected static function booted()
+    {
+        $user = \BackendAuth::getUser();
+        if($user) {
+            $defaultCity = Settings::get('defaultCity');
+            $globalCity = Helper::getUserSettings($user, 'city', $defaultCity);
+            Review::addGlobalScope('globalCityFilter', function (Builder $builder) use($globalCity) {
+                $builder->where('city_id', $globalCity);
+            });
+        }
+    }
+
+    public function beforeSave()
+    {
+        $user = \BackendAuth::getUser();
+        if($user) {
+            $defaultCity = Settings::get('defaultCity');
+            $globalCity = Helper::getUserSettings($user, 'city', $defaultCity);
+            $this->city_id = $globalCity;
+        }
+    }
 }

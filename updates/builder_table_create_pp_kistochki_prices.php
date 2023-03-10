@@ -12,12 +12,12 @@ class BuilderTableCreatePpKistochkiPrices extends Migration
         Schema::create('pp_kistochki_prices', function ($table) {
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
-            $table->integer('master')->default(0);
-            $table->integer('master_night')->default(0);
-            $table->integer('pro_master')->default(0);
-            $table->integer('pro_master_night')->default(0);
-            $table->integer('super_master')->default(0);
-            $table->integer('super_master_night')->default(0);
+            $table->integer('master')->nullable();
+            $table->integer('master_night')->nullable();
+            $table->integer('pro_master')->nullable();
+            $table->integer('pro_master_night')->nullable();
+            $table->integer('super_master')->nullable();
+            $table->integer('super_master_night')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

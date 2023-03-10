@@ -12,29 +12,49 @@ class SeedCitiesTable extends Seeder
     {
         $cities = [
             [
-                'title' => 'Санкт-Петербург',
-                'y_city_id' => 1,
-                'status' => true
+              'static_id' => '1',
+              'title' => 'Москва',
             ],
             [
-                'title' => 'Москва',
-                'y_city_id' => 2,
-                'status' => true
+              'static_id' => '2',
+              'title' => 'Санкт-Петербург',
             ],
             [
-                'title' => 'Тюмень',
-                'y_city_id' => 42,
-                'status' => true
+              'static_id' => '3',
+              'title' => 'Екатеринбург',
             ],
             [
-                'title' => 'Химки',
-                'y_city_id' => 90,
-                'status' => true
+              'static_id' => '88',
+              'title' => 'Казань',
+            ],
+            [
+              'static_id' => '66',
+              'title' => 'Нижний Новгород',
+            ],
+            [
+              'static_id' => '4',
+              'title' => 'Новосибирск',
+            ],
+            [
+              'static_id' => '78',
+              'title' => 'Самара',
+            ],
+            [
+              'static_id' => '95',
+              'title' => 'Тюмень',
+            ],
+            [
+              'static_id' => '1002',
+              'title' => 'Минск',
+            ],
+            [
+              'static_id' => '2077',
+              'title' => 'Химки',
             ],
         ];
 
         foreach ($cities as $city) {
-            City::updateOrCreate(['title' => $city['title']], array_merge($city, ['code' => Str::slug($city['title'])]));
+            City::updateOrCreate(['title' => $city['title']], array_merge($city, ['slug' => Str::slug($city['title'])]));
         }
     }
 }

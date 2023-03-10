@@ -1,4 +1,8 @@
 columns:
-    order:
-        label: Order
+    id:
+        label: ID
+        type: number
+        sortable: true
+    sort_order:
+        label: Вес ссылки
         type: number

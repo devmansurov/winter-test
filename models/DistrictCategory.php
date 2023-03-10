@@ -16,8 +16,6 @@ class DistrictCategory extends Model
         'Winter.Storm.Database.Behaviors.Sortable',
         'Winter.Storm.Database.Behaviors.Purgeable'
     ];
-    
-    const SORT_ORDER = 'order';
 
     /*
      * Disable timestamps by default.
@@ -47,4 +45,22 @@ class DistrictCategory extends Model
     public $belongsTo = [
         'city' => 'Pp\Kistochki\Models\City',
     ];
+
+    public $hasMany = [
+        'districts' => District::class,
+        'cities' => [
+            'Pp\Kistochki\Models\DistrictCategoryCity',
+        ]
+    ];
+
+    // public $hasMany = [
+    //     'cities' => [
+    //         'Pp\Kistochki\Models\DistrictCategoryCity',
+    //         // 'table'    => 'pp_kistochki_district_category_cities',
+    //     ]
+    // ];
+
+    // Load relations globally by default
+    protected $with = ['districts', 'cities'];
+    
 }

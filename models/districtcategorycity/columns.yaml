@@ -1,0 +1,11 @@
+columns:
+    city:
+        label: 'Город'
+        type: text
+        searchable: true
+        sortable: true
+        select: title
+        relation: city
+    color:
+        label: Цвет
+        type: colorpicker

@@ -1,6 +1,21 @@
 scopes:
-  cities:
-    label: Город
-    modelClass: Pp\Kistochki\Models\City
-    conditions: city_id in (:filtered)
-    nameFrom: title
+  district_line:
+    label: Линия метро
+    type: group
+    conditions: district_line_id in (:filtered)
+    modelClass: Pp\Kistochki\Models\DistrictLine
+    options: getDistrictLineOptions
+  district_station:
+    label: Станция метро
+    type: group
+    conditions: district_station_id in (:filtered)
+    modelClass: Pp\Kistochki\Models\DistrictStation
+    options: getDistrictStationOptions
+    dependsOn: district_line
+  status:
+    label: Статус
+    type: switch
+    conditions:
+        - status <> true
+        - status = true
+ 

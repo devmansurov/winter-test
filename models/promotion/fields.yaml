@@ -1,25 +1,25 @@
 fields:
     title:
-        label: 'pp.kistochki::lang.model.title'
+        label: Загаловок
         span: auto
         type: text
     slug:
-        label: 'pp.kistochki::lang.model.slug'
+        label: slug
         span: auto
         preset:
             field: title
             type: slug
         type: text
-    order:
-        label: 'pp.kistochki::lang.model.order'
+    sort_order:
+        label: Вес ссылки
         span: auto
         type: number
     status:
-        label: 'pp.kistochki::lang.model.status'
+        label: Статус
         span: auto
         type: switch
     Images:
-        label: 'pp.kistochki::lang.model.images'
+        label: 'Картинка'
         span: full
         path: field_images
         type: partial

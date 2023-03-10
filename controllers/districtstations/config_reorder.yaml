@@ -1,0 +1,5 @@
+title: DistrictStations
+modelClass: Pp\Kistochki\Models\DistrictStation
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar

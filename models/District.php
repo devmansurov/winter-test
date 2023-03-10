@@ -16,8 +16,6 @@ class District extends Model
         'Winter.Storm.Database.Behaviors.Sortable',
         'Winter.Storm.Database.Behaviors.Purgeable'
     ];
-    
-    const SORT_ORDER = 'order';
 
     /*
      * Disable timestamps by default.

@@ -1,0 +1,5 @@
+title: DistrictLines
+modelClass: Pp\Kistochki\Models\DistrictLine
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar

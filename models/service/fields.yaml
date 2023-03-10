@@ -18,14 +18,14 @@ fields:
         required: 0
         defaultFrom: title
         type: text
-    city:
-        label: Город
+    category:
+        label: Категория
         nameFrom: title
         descriptionFrom: description
         span: auto
         required: 1
         type: relation
-    link_weight:
+    sort_order:
         label: Вес ссылки
         span: auto
         required: 1
@@ -35,24 +35,6 @@ fields:
             max: '100'
             maxlength: '3'
         type: number
-    category:
-        label: Категория
-        nameFrom: title
-        descriptionFrom: description
-        span: auto
-        required: 1
-        type: relation
-    order:
-        label: 'Номер сортировки'
-        span: left
-        type: number
-    pro:
-        label: 'Премиум услуга'
-        span: right
-        type: switch
-        options:
-        on: Да
-        off: Нет
     hit:
         label: Хит
         span: right
@@ -66,14 +48,14 @@ fields:
         type: switch
 tabs:
     fields:
-        description:
-            label: Описание
+        excerpt:
+            label: 'Краткое описание'
             span: full
             required: 0
             type: richeditor
             tab: Описание
-        excerpt:
-            label: 'Краткое описание'
+        description:
+            label: Описание
             span: full
             required: 0
             type: richeditor
@@ -88,73 +70,26 @@ tabs:
             commentAbove: 'RelationController used as a partial field type.'
             type: partial
             tab: Разное
-        edit_price:
-            label: 'Редактировать цены'
+        pro:
+            label: 'Премиум услуга'
             span: full
+            tab: Цены
             type: switch
-            trigger:
-                action: enable
-                field: price[master_night]
-                condition: ''
-            tab: Цены
-        'price[master]':
-            label: 'Цена для мастера'
-            context:
-                - create
-                - update
-            span: auto
-            type: number
-            default: 0
-            tab: Цены
-        'price[master_night]':
-            label: 'Ночная цена для мастера'
-            context:
-                - create
-                - update
-            span: auto
-            trigger:
-                action: disable
-                field: edit_price
-                condition: unchecked
-            type: number
-            comment: 'При пустой значение цена устанавливается автоматически (+20% от основной цены)'
-            default: 0
-            tab: Цены
-        'price[pro_master]':
-            label: 'Цена для TOP мастера'
-            context:
-                - create
-                - update
-            span: auto
-            type: number
-            default: 0
-            tab: Цены
-        'price[pro_master_night]':
-            label: 'Ночная цена для TOP мастера'
-            context:
-                - create
-                - update
-            span: auto
-            trigger:
-                action: disable
-                field: edit_price
-                condition: unchecked
-            comment: 'При пустой значение цена устанавливается автоматически (+20% от основной цены)'
-            type: number
-            default: 0
-            tab: Цены
+            options:
+            on: Да
+            off: Нет
         'price[super_master]':
             label: 'Цена для SUPER мастера'
             span: auto
+            comment: 'Дневной цена услуги SUPER мастера'
             trigger:
-                action: disable
+                action: show
                 field: pro
-                condition: unchecked
+                condition: checked
             context:
                 - create
                 - update
             type: number
-            default: 0
             tab: Цены
         'price[super_master_night]':
             label: 'Ночная цена для SUPER мастера'
@@ -163,24 +98,67 @@ tabs:
                 - update
             span: auto
             trigger:
-                action: disable
-                field: edit_price
-                condition: unchecked
+                action: show
+                field: pro
+                condition: checked
             type: number
             comment: 'При пустой значение цена устанавливается автоматически (+20% от основной цены)'
-            default: 0
+            tab: Цены
+        'price[master]':
+            label: 'Цена для мастера'
+            context:
+                - create
+                - update
+            span: auto
+            comment: 'Дневной цена услуги мастера'
+            type: number
+            tab: Цены
+        'price[master_night]':
+            label: 'Ночная цена для мастера'
+            context:
+                - create
+                - update
+            span: auto
+            type: number
+            comment: 'При пустой значение цена устанавливается автоматически (+20% от основной цены)'
+            tab: Цены
+        'price[pro_master]':
+            label: 'Цена для TOP мастера'
+            context:
+                - create
+                - update
+            span: auto
+            comment: 'Дневной цена услуги TOP мастера'
+            type: number
+            tab: Цены
+        'price[pro_master_night]':
+            label: 'Ночная цена для TOP мастера'
+            context:
+                - create
+                - update
+            span: auto
+            comment: 'При пустой значение цена устанавливается автоматически (+20% от основной цены)'
+            type: number
             tab: Цены
         'seo[meta_title]':
             label: 'SEO заголовок'
             span: auto
             type: text
+            preset:
+                field: title
+                type: exact
             defaultFrom: title
+            attributes:
+                maxlength: '80'
+            comment: Максимальное количество символов 80
             tab: SEO
         'seo[meta_desc]':
             label: 'SEO описание'
-            size: ''
-            span: full
-            type: textarea
+            span: auto
+            attributes:
+                maxlength: '191'
+            type: text
+            comment: 'Максимальное количество символов 191'
             tab: SEO
         images:
             label: Картинки

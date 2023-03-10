@@ -13,15 +13,16 @@ class BuilderTableCreatePpKistochkiGoals extends Migration
         $table->increments('id')->unsigned();
         $table->string('title');
         $table->string('subtitle')->nullable();
-        $table->string('slug');
+        $table->string('slug')->nullable();
         $table->text('excerpt')->nullable();
         $table->text('description')->nullable();
         $table->json('information')->nullable();
         $table->integer('city_id');
         $table->boolean('status')->default(0);
-        $table->integer('order')->default(0);
+        $table->integer('sort_order')->default(0);
         $table->timestamp('created_at')->nullable();
         $table->timestamp('updated_at')->nullable();
+        $table->timestamp('deleted_at')->nullable();
     });
 }
 

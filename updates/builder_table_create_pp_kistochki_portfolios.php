@@ -12,9 +12,12 @@ class BuilderTableCreatePpKistochkiPortfolios extends Migration
         Schema::create('pp_kistochki_portfolios', function ($table) {
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
-            $table->string('img')->nullable();
-            $table->string('img_mini')->nullable();
-            $table->smallInteger('order')->default(0);
+            $table->integer('city_id');
+            $table->smallInteger('sort_order')->default(0);
+            $table->boolean('status')->default(0);
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

@@ -1,0 +1,12 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+contacts:
+    label: контакта
+    view:
+        form: $/pp/kistochki/models/contact/fields.yaml
+        list: $/pp/kistochki/models/contact/columns.yaml
+    manage:
+        form: $/pp/kistochki/models/contact/fields.yaml
+        list: $/pp/kistochki/models/contact/columns.yaml

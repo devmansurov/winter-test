@@ -22,7 +22,7 @@ class Portfolio extends Model
      * @var string The database table used by the model.
      */
     public $table = 'pp_kistochki_portfolios';
-    const SORT_ORDER = 'order';
+
     /**
      * @var array Validation rules
      */

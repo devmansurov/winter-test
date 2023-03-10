@@ -28,18 +28,28 @@ class SaloonResource extends JsonResource
     {
         return $this->filterFields([
             'id' => $this->id,
-            'title' => $this->address,
-            'address' => $this->address,
-            'description' => $this->description,
-            'schedule' => $this->schedule,
-            'coords' => [
+            'title' => $this->when($this->title, $this->title),
+            'subtitle' => $this->when($this->subtitle, $this->subtitle),
+            'excerpt' => $this->when($this->excerpt, $this->excerpt),
+            'description' => $this->when($this->description, $this->description),
+            'address' => $this->when($this->address, $this->address),
+            'schedule' => $this->when($this->schedule, $this->schedule),
+            'bookable' => (bool) $this->bookable,
+            'status' => (bool) $this->status,
+            'coords' => $this->when($this->lat && $this->long, [
                 'lat' => $this->lat,
                 'long' => $this->long,
-            ],
-            'phone' => $this->phone,
-            'order' => $this->order,
-            'district' => $this->whenLoaded('district', function () {
-                return new DistrictResource($this->district);
+            ]),
+            'logo' => $this->when($this->logo, fn() => $this->logo->getPath()),
+            'contacts' => $this->whenLoaded('contacts', fn() => ContactResource::collection($this->contacts)->resolve()),
+            'city' => $this->whenLoaded('city', fn() => new CityResource($this->city)),
+            // 'district_line' => $this->when(!$this->district_station_id, fn () => new DistrictLineResource($this->district_line)),
+            // 'district_station' => $this->when($this->district_station_id, fn () => new DistrictStationResource($this->district_station)),
+            'district' => $this->when($this->district_line_id || $this->district_station_id, function () {
+                if(!$this->district_station_id) {
+                    return new DistrictLineResource($this->district_line);
+                }
+                return new DistrictStationResource($this->district_station);
             }),
         ]);
     }

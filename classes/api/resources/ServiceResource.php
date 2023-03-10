@@ -32,24 +32,31 @@ class ServiceResource extends JsonResource
         return $this->filterFields([
             'id' => $this->id,
             'title' => $this->title,
-            'description' => $this->description,
-            'slug' => $this->slug,
-            // 'order' => $this->order,
+            'subtitle' => $this->when($this->subtitle, $this->subtitle),
+            'slug' => $this->when($this->slug, $this->slug),
+            'excerpt' => $this->when($this->excerpt, $this->excerpt),
+            'description' => $this->when($this->description, $this->description),
             'price' => $this->when($this->relationLoaded('price') && $hasPrice, function () {
                 return new PriceResource($this->price);
             }),
-            'seo' => $this->whenLoaded('seo', function () {
-                return new SeoResource($this->seo);
-            }),
-            'city' => $this->whenLoaded('city', function () {
-                return new CityResource($this->city);
+            'category' => $this->whenLoaded('category', function () {
+                return new CategoryResource($this->category);
             }),
             'tags' => $this->whenLoaded('tags', function () {
                 return new TagCollection($this->tags);
             }),
-            'images' => $this->whenLoaded('images', function () {
+            'city' => $this->whenLoaded('city', function () {
+                return new CityResource($this->city);
+            }),
+            'images' => $this->when($this->relationLoaded('images') && count($this->images), function () {
                 return new ImageCollection($this->images);
-            })
+            }),
+            'seo' => $this->when($this->relationLoaded('seo') && ($this->seo->meta_title || $this->seo->meta_desc), function () {
+                return new SeoResource($this->seo);
+            }),
+            'pro' => (bool) $this->pro,
+            'hit' => (bool) $this->hit,
+            'status' => (bool) $this->status,
         ], $request);
     }
 

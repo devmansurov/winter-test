@@ -14,7 +14,7 @@ class BuilderTableCreatePpKistochkiDistricts extends Migration
             $table->increments('id')->unsigned();
             $table->string('title');
             $table->string('slug');
-            $table->integer('order')->default(0);
+            $table->integer('sort_order')->default(0);
             $table->boolean('status')->default(0);
             $table->integer('district_category_id');
         });

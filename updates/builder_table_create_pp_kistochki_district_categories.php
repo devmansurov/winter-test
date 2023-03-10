@@ -13,7 +13,8 @@ class BuilderTableCreatePpKistochkiDistrictCategories extends Migration
         $table->increments('id')->unsigned();
         $table->string('title');
         $table->string('slug');
-        $table->integer('order')->default(0);
+        $table->integer('sort_order')->default(0);
+        $table->integer('city_id')->nullable();
         $table->boolean('is_metro')->default(0);
         $table->boolean('status')->default(0);
         $table->json('details')->nullable();
