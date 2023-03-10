@@ -28,8 +28,9 @@
     - 'Создание таблицу акций'
     - builder_table_create_pp_kistochki_promotions.php
 1.0.9:
-    - 'Создание таблицу новостей'
+    - 'Создание таблицу новости и статей'
     - builder_table_create_pp_kistochki_news.php
+    - builder_table_create_pp_kistochki_info.php
 1.1.0:
     - 'Создание таблицу отзывов'
     - builder_table_create_pp_kistochki_reviews.php
@@ -67,43 +68,9 @@
     - 'Создание таблицу обратных звонков'
     - builder_table_create_pp_kistochki_callbacks.php
 1.2.1:
-    - 'Created table pp_kistochki_district_lines'
+    - 'Создание таблицу линии и станции метро'
     - builder_table_create_pp_kistochki_district_lines.php
-1.2.2:
-    - 'Created table pp_kistochki_district_stations'
     - builder_table_create_pp_kistochki_district_stations.php
-1.2.3:
-    - 'Добавление автозаполнителей для базы данных'
-    - DatabaseSeeder.php
-    - 'Добавление автозаполнителей для базы данных'
-    - DatabaseSeeder.php
 1.2.2:
-    - 'Создание таблицу Статья'
-    - builder_table_create_pp_kistochki_info.php
-1.2.3:
-    - 'Updated table pp_kistochki_reviews'
-    - builder_table_update_pp_kistochki_reviews.php
-1.2.4:
-    - 'Updated table pp_kistochki_news'
-    - builder_table_update_pp_kistochki_news.php
-1.2.5:
-    - 'Updated table pp_kistochki_news'
-    - builder_table_update_pp_kistochki_news_2.php
-1.2.6:
-    - 'Updated table pp_kistochki_news'
-    - builder_table_update_pp_kistochki_news_3.php
-1.2.7:
-    - 'Updated table pp_kistochki_news'
-    - builder_table_update_pp_kistochki_news_4.php
-1.2.8:
-    - 'Updated table pp_kistochki_info'
-    - builder_table_update_pp_kistochki_info.php
-1.2.9:
-    - 'Updated table pp_kistochki_info'
-    - builder_table_update_pp_kistochki_info_2.php
-1.2.10:
-    - 'Updated table pp_kistochki_info'
-    - builder_table_update_pp_kistochki_info_3.php
-1.2.11:
-    - 'Updated table pp_kistochki_promotions'
-    - builder_table_update_pp_kistochki_promotions.php
+    - 'Добавление автозаполнителей для базы данных'
+    - DatabaseSeeder.php

@@ -16,9 +16,9 @@ class BuilderTableCreatePpKistochkiReviews extends Migration
             $table->string('name')->nullable();
             $table->double('rating', 10, 0)->nullable();
             $table->text('text')->nullable();
-            $table->boolean('status')->default(false)->change();
-            $table->integer('sort_order')->default(0);
             $table->integer('city_id');
+            $table->integer('sort_order')->default(0);
+            $table->boolean('status')->default(false);
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('deleted_at')->nullable();
